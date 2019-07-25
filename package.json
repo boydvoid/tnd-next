@@ -57,8 +57,6 @@
     "pure-react-carousel": "^1.19.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "**/react": "16.8.6",
-    "**/react-dom": "16.8.6",
     "react-draft-wysiwyg": "^1.13.2",
     "react-glide": "^3.2.0",
     "react-helmet": "^5.2.1",
