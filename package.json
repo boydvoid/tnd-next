@@ -4,9 +4,9 @@
   "description": "The teacher next door blog with next.js",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "node server.js -p $PORT",
     "build": "next build",
-    "start": "SET NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js -p $PORT"
   },
   "repository": {
     "type": "git",
