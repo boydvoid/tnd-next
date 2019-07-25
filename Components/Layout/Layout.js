@@ -61,7 +61,7 @@ const Layout = props => {
 
         /* custom grid */
         .container {
-          max-width: 1718px !important;
+          max-width: 1440px !important;
         }
 
         .row {
@@ -94,18 +94,21 @@ const Layout = props => {
 
         h1 {
           font-family: "Comorant Garamond", serif;
-          font-size: 56px;
-          font-weight: 700;
+          font-size: 27px !important;
+          font-weight: 700 !important;
         }
 
         h2 {
           font-family: "Rubik", sans-serif;
-          font-size: 36px;
+          font-size: 20px;
         }
 
+        p {
+          margin: 0 !important;
+        }
         p a {
           font-family: "Martel Sans";
-          font-size: 16px;
+          font-size: 15px;
         }
 
         ul {
@@ -122,6 +125,34 @@ const Layout = props => {
 
         .padding-10 {
           padding: 10px;
+        }
+
+        .card-shadow {
+          background-color: #ffffff;
+          border-radius: 4px;
+          box-shadow: 0 20px 40px #a06cd5a6;
+          padding: 30px;
+        }
+        .mainInput {
+          border: none;
+          padding-left: 10px;
+          padding: 2px 10px 2px 10px;
+          -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+          border: 1px solid #e2cfea;
+          border-radius: 4px;
+          width: 100%;
+        }
+        .mainInput::placeholder {
+          color: #a06cd5a6;
+        }
+        .mainInput:focus {
+          background-color: #a06cd5a6;
+          transform: scale(1.1);
+        }
+
+        .light-purple {
+          background-color: #e2cfea;
         }
       `}</style>
     </div>

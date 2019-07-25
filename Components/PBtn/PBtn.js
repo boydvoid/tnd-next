@@ -15,13 +15,14 @@ const PBtn = props => (
       ""
     )}
     {props.external ? (
-      <a
-        href={props.link}
-        className={`anchor ${props.className}`}
-        target={props.external ? "_blank" : ""}
-      >
-        {props.children}
-      </a>
+      <Link href={props.link}>
+        <a
+          className={`anchor ${props.className}`}
+          target={props.external ? "_blank" : ""}
+        >
+          {props.children}
+        </a>
+      </Link>
     ) : (
       ""
     )}
@@ -41,7 +42,20 @@ const PBtn = props => (
     <style jsx global>
       {`
         .primary-button {
+          background-color: #2699fb;
+          box-shadow: -4px 7px 0 #6953956b;
+          border-radius: 4px;
+          border: none;
+          padding: 15px 50px;
+          margin-top: 20px;
+          color: #ffffff;
+          width: 100%;
+          transition: all 0.5s ease;
+        }
+        .primary-button:hover {
           background-color: #695395;
+          box-shadow: -4px 7px 0 #2699fb6b;
+          border-radius: 4px;
           border: none;
           padding: 15px 50px;
           margin-top: 20px;
@@ -50,7 +64,7 @@ const PBtn = props => (
         }
 
         .secondary-button {
-          background-color: #001f3f;
+          background-color: #2699fb;
           border: none;
           padding: 15px 50px;
           margin-top: 20px;

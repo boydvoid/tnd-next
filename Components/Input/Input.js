@@ -10,15 +10,7 @@ const Input = props => (
       onChange={props.onChange}
       id={props.id}
     />
-    <style jsx>
-      {`
-        .mainInput {
-          border: none;
-          padding-left: 10px;
-          transition: all 0.5s ease;
-        }
-      `}
-    </style>
+    <style jsx>{``}</style>
   </div>
 );
 

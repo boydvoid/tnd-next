@@ -55,8 +55,11 @@ class CollectionSlider extends Component {
       arrows: false
     };
     return (
-      <div className="container-fluid grey border-bottom padding-30">
+      <div className="container-fluid border-bottom padding-30">
         <div className="container">
+          <div className="row">
+            <h1>My Products</h1>
+          </div>
           <div className="row-contained">
             <Slider {...settings}>
               {this.state.items.map((item, index) => {
@@ -66,7 +69,13 @@ class CollectionSlider extends Component {
           </div>
           <div className="row">
             <div className="col-xl-2">
-              <PBtn>Visit My Shop</PBtn>
+              <PBtn
+                className="primary-button"
+                link="https://www.teacherspayteachers.com/Store/The-Teacher-Next-Door"
+                external={true}
+              >
+                Visit My Shop
+              </PBtn>
             </div>
           </div>
         </div>
@@ -84,7 +93,6 @@ class CollectionSlider extends Component {
 
             .slick-track img {
               max-width: 270px;
-              box-shadow: 0 3px 6px #00000075;
             }
             .slider-item img {
               max-width: 270px;
@@ -96,8 +104,8 @@ class CollectionSlider extends Component {
             }
 
             .slick-slider {
-              max-width: 1140px;
-              padding: 10px;
+              max-width: 1440px;
+              padding: 30px;
             }
           `}
         </style>

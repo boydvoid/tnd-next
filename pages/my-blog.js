@@ -9,10 +9,19 @@ import "isomorphic-fetch";
 class Blogs extends Component {
   static async getInitialProps({ req }) {
     const baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
-    const response = await fetch(baseUrl + "/api/blog/loadall");
+    let query = req.query;
+    console.log(Object.keys(query).length);
+    if (Object.keys(query).length !== 0) {
+      const response = await fetch(baseUrl + "/api/blog/search/" + query.q);
 
-    const blogs = await response.json();
-    return { blogs: blogs };
+      const blogs = await response.json();
+      return { blogs: blogs };
+    } else {
+      const response = await fetch(baseUrl + "/api/blog/loadall");
+
+      const blogs = await response.json();
+      return { blogs: blogs };
+    }
   }
 
   render() {
