@@ -8,6 +8,10 @@ const Layout = props => {
       <Head>
         <title>My styled page</title>
         <link
+          href="https://fonts.googleapis.com/css?family=Cabin:400,700|Lato:400,700|Roboto:400,700&display=swap"
+          rel="stylesheet"
+        ></link>
+        <link
           rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -93,13 +97,13 @@ const Layout = props => {
         }
 
         h1 {
-          font-family: "Comorant Garamond", serif;
+          font-family: "Cabin", serif;
           font-size: 27px !important;
           font-weight: 700 !important;
         }
 
         h2 {
-          font-family: "Rubik", sans-serif;
+          font-family: "Lato", sans-serif;
           font-size: 20px;
         }
 
@@ -107,7 +111,7 @@ const Layout = props => {
           margin: 0 !important;
         }
         p a {
-          font-family: "Martel Sans";
+          font-family: "Roboto";
           font-size: 15px;
         }
 

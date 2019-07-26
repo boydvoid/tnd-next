@@ -9,18 +9,20 @@ import "isomorphic-fetch";
 class Blogs extends Component {
   static async getInitialProps({ req }) {
     const baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
-    let query = req.query;
-    console.log(Object.keys(query).length);
-    if (Object.keys(query).length !== 0) {
-      const response = await fetch(baseUrl + "/api/blog/search/" + query.q);
+    if (req !== undefined) {
+      console.log(req.query);
+      let query = req.query;
+      if (Object.keys(query).length !== 0) {
+        const response = await fetch(baseUrl + "/api/blog/search/" + query.q);
 
-      const blogs = await response.json();
-      return { blogs: blogs };
-    } else {
-      const response = await fetch(baseUrl + "/api/blog/loadall");
+        const blogs = await response.json();
+        return { blogs: blogs };
+      } else {
+        const response = await fetch(baseUrl + "/api/blog/loadall");
 
-      const blogs = await response.json();
-      return { blogs: blogs };
+        const blogs = await response.json();
+        return { blogs: blogs };
+      }
     }
   }
 
@@ -39,7 +41,7 @@ class Blogs extends Component {
                     <div className="col-xl-4" key={index}>
                       <img className="slider-img" src={blog.img} alt="" />
                       <p>
-                        <Link href={`/blog/${blog._id}`}>
+                        <Link href={`/blog?q=${blog._id}`}>
                           <a>{blog.title}</a>
                         </Link>
                       </p>

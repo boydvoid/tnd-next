@@ -6,6 +6,7 @@ import Light from "../../images/light.png";
 import Mug from "../../images/mug.png";
 import Pencil from "../../images/pencil.png";
 import Link from "next/link";
+import PBtn from "../PBtn/PBtn";
 const IconNav = props => (
   <div className="container icon-nav">
     <img src={Logo} alt="" className="logo" />
@@ -28,6 +29,10 @@ const IconNav = props => (
           </Link>
         </li>
         <li>
+          <form action="/my-blog">
+            <input type="text" value="math" />
+            <PBtn type="submit">Math</PBtn>
+          </form>
           <Link href="/my-blog?q=math">
             <a className="icon-link-tags">
               <img src={Calc} className="icons" alt="" />
@@ -96,6 +101,9 @@ const IconNav = props => (
           flex-direction: column;
           align-items: center;
           padding-left: 20px;
+        }
+        .icon-nav input {
+          display: none;
         }
       `}
     </style>

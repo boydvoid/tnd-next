@@ -157,7 +157,8 @@ class ConvertKit extends Component {
             }
 
             .convert-kit-div p {
-              margin-top: 20px;
+              margin-top: 20px !important;
+              margin-bottom: 20px !important;
             }
 
             .convert-input {
