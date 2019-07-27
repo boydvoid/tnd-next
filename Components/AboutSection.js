@@ -1,6 +1,6 @@
 import React from "react";
-import Jenn from "../../images/jennphoto.png";
-import PBtn from "../PBtn/PBtn";
+import Jenn from "../images/jennphoto.png";
+import PBtn from "./PBtn";
 const AboutSection = props => {
   return (
     <div className="container about padding-top-30">

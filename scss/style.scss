@@ -1,183 +1,84 @@
-// $color: blue;
+@import './_vars.scss';
+@import "./navbar.scss";
+@import "./iconNav.scss";
+@import "./convertKit.scss";
+@import "./collectionSlider.scss";
+@import "./slide.scss";
+@import "../node_modules/bulma/bulma.sass";
 
-// body {
-//   margin: 0;
-//   padding: 0;
-//   overflow-x: hidden;
-//   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-//     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-//     "Helvetica Neue", sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
+$primary: 'Cabin',
+serif;
+$secondary: 'Lato',
+sans-serif;
+$tertiary: 'Roboto',
+sans-serif;
+$bold: 700;
+$light: 200;
 
-// code {
-//   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-//     monospace;
-// }
+a {
+  font-family: $secondary;
+}
 
-// .container,
-// .container-fluid,
-// .row {
-//   padding: 0;
-// }
+nav {
+  max-height: 70px;
+  height: 100%;
+}
 
-// /* custom grid */
-// .container {
-//   max-width: 1718px;
-// }
+h2 {
+  font-family: $secondary;
+  font-weight: $bold;
+  font-style: italic;
+  font-size: 20px;
+}
 
-// .row {
-//   justify-content: center;
-// }
+h1 {
+  font-family: $primary;
+  font-weight: $bold;
+  font-size: 50px;
+  color: $darkPurple;
+}
 
-// .row-contained {
-//   width: 100%;
-//   max-width: 1140px;
-//   display: flex;
-//   flex-wrap: wrap;
-//   margin: 0 auto;
-//   justify-content: center;
-//   text-align: center;
-// }
+p {
+  font-family: $tertiary;
+  font-size: 15px;
+}
 
-// .center {
-//   justify-content: center;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
+// for the searchbar in the navbar
 
-// a {
-//   color: #000000;
-// }
+.icon-button {
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
 
-// .border-bottom {
-//   border-bottom: 1px solid #80808047 !important;
-// }
-
-// h1 {
-//   font-family: "Comorant Garamond", serif;
-//   font-size: 56px;
-//   font-weight: 700;
-// }
-
-// h2 {
-//   font-family: "Rubik", sans-serif;
-//   font-size: 36px;
-// }
-
-// p a {
-//   font-family: "Martel Sans";
-//   font-size: 16px;
-// }
-
-// ul {
-//   list-style-type: none;
-// }
-
-// .padding-30 {
-//   padding: 30px;
-// }
-
-// .padding-top-30 {
-//   padding-top: 30px;
-// }
-
-// .padding-10 {
-//   padding: 10px;
-// }
+//for a white background section
+.white {
+  background-color: $white !important;
+}
 
 
-// // blogs
-// .blog-container .preview {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
-
-// .blog-container ul {
-//   list-style-type: none;
-//   padding: 0;
-// }
-
-// .blog-container ul li {
-//   float: left;
-//   margin: 10px;
-// }
-
-// .blog-container .blog-title {
-//   font-size: 50px;
-//   margin-bottom: 1em;
-//   text-align: center;
-// }
-
-// .blog-container .title-container {
-//   display: flex;
-//   flex-direction: column;
-//   align-content: center;
-//   align-items: center;
-//   background-color: rgb(231, 231, 231);
-//   text-align: center;
-//   padding: 3em;
-//   border-bottom: 1px solid #C6c6c6;
-//   width: 100%;
-//   margin-bottom: 3em;
-// }
+.primary-button {
+  background-color: $lightPurple;
+  border: 2px solid $darkPurple;
+  color: $white;
+  font-family: $secondary;
+  text-transform: uppercase;
+  width: 90%;
+}
 
 
-// .blog-container .preview .image-style-side {
-//   float: right;
-// }
+.relative {
+  position: relative;
+}
 
-// .blog-container .preview .image img {
-//   max-width: 900px;
-// }
+.light-purple {
+  background-color: $lightPurple;
+}
 
-// .blog-container .preview .image-style-side img {
-//   width: 30em;
-//   max-width: 30em;
-// }
-
-// .blog-container .preview {
-//   max-width: 65em;
-// }
-
-// .blog-container .preview figure {
-//   align-items: center;
-//   display: flex;
-//   justify-content: center;
-// }
-
-
-// //blogs
-// .blogs {
-//   text-align: center;
-// }
-
-// .slider-img {
-//   width: 100%;
-//   max-width: 270px;
-// }
-
-// //freebies
-// .wrapper-freebies {
-//   text-align: center;
-// }
-
-// .freebies-title {
-//   width: 100%;
-//   text-align: center;
-//   display: flex;
-//   justify-content: center;
-//   padding: 80px;
-// }
-
-// .freebies-title h2 {
-//   font-size: 50px;
-//   font-family: 'Rubik', sans-serif;
-//   max-width: 1184px;
-//   width: 100%;
-// }
-
-// //home
+.white-bg {
+  background-color: $white;
+}

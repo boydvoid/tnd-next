@@ -1,0 +1,86 @@
+nav {
+  background-color: $lightPurple !important;
+
+  a {
+    font-size: 12px;
+  }
+
+  ul li {
+    float: left;
+    padding: 0px 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  ul {
+    height: 31px;
+    margin: 0;
+  }
+
+  form {
+    display: flex;
+  }
+
+  .searchBar {
+    background-color: $white;
+    color: $white;
+    width: 100%;
+    color: $darkPurple;
+    left: 0;
+    position: relative;
+    padding: 6px;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid $white;
+  }
+
+  .searchBar::placeholder {
+    color: $lightPurple;
+  }
+
+  button {
+    background-color: $lightPurple !important;
+    color: $white;
+    padding: 0;
+    border: 1px solid $white !important;
+  }
+
+  .socials {
+    font-size: 20px;
+  }
+
+  a {
+    background: none;
+    color: $white;
+    padding: 0;
+  }
+
+  .admin-nav {
+    border-bottom: 1px solid #c6c6c6;
+  }
+
+  .title {
+    font-weight: 700;
+    color: $white;
+  }
+
+  #navbarNav {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .primary-button {
+    margin: 0;
+    padding: 3px 10px 3px 10px;
+    border: 3px solid #45316d;
+    width: 40px;
+
+    transition: all 0.5s ease;
+  }
+
+  .primary-button:hover {
+    background-color: #001f3f;
+  }
+}

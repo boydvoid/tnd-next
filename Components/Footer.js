@@ -1,5 +1,5 @@
 import React from "react";
-import P from "../P/p";
+import P from "./P/p";
 const Footer = props => {
   return (
     <nav className={`navbar navbar-expand-lg ${props.className}`}>

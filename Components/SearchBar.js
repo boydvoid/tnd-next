@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Input from "../Input/Input";
-import api from "../../utils/api";
-import PBtn from "../PBtn/PBtn";
+import Input from "./Input";
+import api from "../utils/api";
+import PBtn from "./PBtn";
 class SearchBar extends Component {
   state = {
     searchBox: ""
@@ -23,7 +23,7 @@ class SearchBar extends Component {
           name="q"
           onChange={this.handleChange}
         />
-        <PBtn type="submit">
+        <PBtn className="icon-button" type="submit">
           <i className="fas fa-search"></i>
         </PBtn>
       </form>

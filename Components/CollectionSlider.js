@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import PBtn from "../PBtn/PBtn";
+import PBtn from "./PBtn";
 import Slider from "react-slick";
-
+import Present from "../images/Q.png";
 class CollectionSlider extends Component {
   state = {
     items: [
@@ -48,29 +48,25 @@ class CollectionSlider extends Component {
   render() {
     var settings = {
       infinite: true,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 4,
       autoplay: true,
+      cssEase: "linear",
+      speed: 3000,
+      slidesToShow: 3,
       arrows: false
     };
     return (
-      <div className="container-fluid border-bottom padding-30">
+      <div className="container-fluid collections border-bottom padding-30">
         <div className="container">
-          <div className="row">
-            <h1>My Products</h1>
-          </div>
-          <div className="row-contained">
-            <Slider {...settings}>
-              {this.state.items.map((item, index) => {
-                return <img src={item.img} alt="" />;
-              })}
-            </Slider>
-          </div>
-          <div className="row">
-            <div className="col-xl-2">
+          <img src={Present} alt="" />
+          <h1>My Products</h1>
+          <Slider {...settings}>
+            {this.state.items.map((item, index) => {
+              return <img src={item.img} alt="" />;
+            })}
+          </Slider>
+          <div className="columns is-centered">
+            <div className="column is-2">
               <PBtn
-                className="primary-button"
                 link="https://www.teacherspayteachers.com/Store/The-Teacher-Next-Door"
                 external={true}
               >
@@ -79,36 +75,6 @@ class CollectionSlider extends Component {
             </div>
           </div>
         </div>
-        <style jsx global>
-          {`
-            .slick-track {
-              display: flex;
-            }
-
-            .slick-list {
-              postition: relative;
-              display: block;
-              overflow: hidden;
-            }
-
-            .slick-track img {
-              max-width: 270px;
-            }
-            .slider-item img {
-              max-width: 270px;
-              box-shadow: 0 3px 6px #00000075;
-            }
-
-            .grey {
-              background-color: rgb(231, 231, 231);
-            }
-
-            .slick-slider {
-              max-width: 1440px;
-              padding: 30px;
-            }
-          `}
-        </style>
       </div>
     );
   }

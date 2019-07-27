@@ -1,0 +1,32 @@
+.icon-nav {
+  max-height: 180px;
+  height: 100%;
+
+  .logo {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+  }
+
+  .navbar-end {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+  }
+
+  a {
+    color: $darkPurple;
+  }
+
+  .icons {
+    width: 72px;
+  }
+
+  .icon-link-tags {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

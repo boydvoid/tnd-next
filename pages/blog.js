@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import IconNav from "../Components/IconNav/IconNav";
 import api from "../utils/api";
 import {
   EditorState,
@@ -10,10 +9,10 @@ import {
 import { Editor } from "react-draft-wysiwyg";
 import draftToHtml from "draftjs-to-html";
 import htmlToDraft from "html-to-draftjs";
-import PBtn from "../Components/PBtn/PBtn";
-import Input from "../Components/Input/Input";
-import NavNext from "../Components/NavNext/NavNext";
+import PBtn from "../Components/PBtn";
+import Input from "../Components/Input";
 import Layout from "../Components/Layout/Layout";
+import Header from "../Components/Header";
 class BlogPage extends Component {
   state = {};
 
@@ -31,8 +30,7 @@ class BlogPage extends Component {
     return (
       <Layout>
         <div className="blogPage">
-          <NavNext />
-          <IconNav />
+          <Header />
           <div className="container-fluid blog-container">
             <div className="row">
               <div className="col-xl-12 center">
