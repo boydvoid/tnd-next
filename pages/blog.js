@@ -13,6 +13,7 @@ import PBtn from "../Components/PBtn";
 import Input from "../Components/Input";
 import Layout from "../Components/Layout/Layout";
 import Header from "../Components/Header";
+import { useRouter } from "next/router";
 class BlogPage extends Component {
   state = {};
 

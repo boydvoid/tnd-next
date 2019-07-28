@@ -91,6 +91,11 @@ nextApp
       })
     );
 
+    // //paramater routing
+    // server.get("/blog/:slug", (req, res) => {
+    //   return app.render(req, res, "/blog", { slug: req.params.slug });
+    // });
+
     server.get("*", (req, res) => {
       return handle(req, res);
     });

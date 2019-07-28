@@ -15,7 +15,7 @@ const BlogSlider = props => (
             if (blog.live && index < 8) {
               return (
                 <div className="column is-3" key={index}>
-                  <Link href={`/blog/${blog._id}`}>
+                  <Link href={{ pathname: "/blog", query: { q: blog._id } }}>
                     <a>
                       <Slide
                         title={blog.title}
