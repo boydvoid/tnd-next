@@ -96,6 +96,14 @@ nextApp
     //   return app.render(req, res, "/blog", { slug: req.params.slug });
     // });
 
+    server.get("/blog/:slug", (req, res) => {
+      return nextApp.render(req, res, "/blog", { q: req.params.slug });
+    });
+
+    server.get("/my-blog/:slug", (req, res) => {
+      return nextApp.render(req, res, "/my-blog", { q: req.params.slug });
+    });
+
     server.get("*", (req, res) => {
       return handle(req, res);
     });

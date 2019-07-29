@@ -25,11 +25,7 @@ class Home extends Component {
     return (
       <Layout>
         <div className="wrapper-home">
-          {/* <Navbar position="right">
-            <Navlinks />
-          </Navbar> */}
           <Header />
-
           <Jumbotron mainImage={Slider} />
           <ConvertKit title="JOIN MY NEWSLETTER!" />
           <CollectionSlider />

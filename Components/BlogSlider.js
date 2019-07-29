@@ -13,9 +13,14 @@ const BlogSlider = props => (
         <div className="columns is-multiline is-centered">
           {props.blogs.map((blog, index) => {
             if (blog.live && index < 8) {
+              let cleanTitle = blog.title.replace(" ", "-");
+              console.log(cleanTitle);
               return (
                 <div className="column is-3" key={index}>
-                  <Link href={{ pathname: "/blog", query: { q: blog._id } }}>
+                  <Link
+                    as={`/blog/${cleanTitle}`}
+                    href={`/blog?q=${blog.title}`}
+                  >
                     <a>
                       <Slide
                         title={blog.title}

@@ -4,7 +4,7 @@ import Input from "../Components/Input/Input";
 import IconNav from "../Components/IconNav/IconNav";
 import api from "../utils/api";
 import ConvertKit from "../Components/ConvertKit/ConvertKit";
-import AboutSection from "../Components/AboutSection/AboutSection";
+import AboutSection from "../Components/AboutSection";
 import FreebieLogin from "../Components/FreebieLogin/FreebieLogin";
 import Footer from "../Components/Footer/Footer";
 import Navlinks from "../Components/Navlinks/Navlinks";
