@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import Layout from "./Layout/Layout";
 import Link from "next/link";
 import Socials from "./Socials";
-const NavNext = props => {
+const NavNext = ({ user, history }) => {
   return (
     <nav class="navbar">
       <div className="container">
@@ -32,11 +32,16 @@ const NavNext = props => {
                     <a>MY STORE</a>
                   </Link>
                 </li>
-
                 <li>
-                  <Link href="/freebies">
-                    <a>FREEBIES</a>
-                  </Link>
+                  {user ? (
+                    <Link href="/teacher-freebies">
+                      <a>FREEBIES</a>
+                    </Link>
+                  ) : (
+                    <Link href="/freebies-register">
+                      <a>FREEBIES</a>
+                    </Link>
+                  )}
                 </li>
                 <li>
                   <Link href="/meet-jenn">
@@ -69,7 +74,7 @@ const NavNext = props => {
                   </Socials>
                 </li>
                 <li>
-                  <SearchBar history={props.history} />
+                  <SearchBar history={history} />
                 </li>
               </ul>
             </div>

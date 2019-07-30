@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import PBtn from "../PBtn/PBtn";
-import P from "../P/p";
+import PBtn from "./PBtn";
+import P from "./P/p";
 const FreebieLogin = props => {
   if (props.register === true) {
     return (
@@ -35,7 +35,11 @@ const FreebieLogin = props => {
     return (
       <div className="container-fluid freebie-login">
         <P>Have you already joined the newsletter?</P>
-        <PBtn link="/my-freebies" className="primary-button" external={false}>
+        <PBtn
+          link="/teacher-freebies"
+          className="primary-button"
+          external={false}
+        >
           Login
         </PBtn>
         <style jsx global>

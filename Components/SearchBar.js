@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Input from "./Input";
 import api from "../utils/api";
 import PBtn from "./PBtn";
+import Link from "next/link";
 class SearchBar extends Component {
   state = {
     searchBox: ""
@@ -13,9 +14,13 @@ class SearchBar extends Component {
     });
   };
 
+  submit = e => {
+    e.preventDefault();
+  };
+
   render() {
     return (
-      <form action="/my-blog">
+      <form onSubmit={this.submit}>
         <Input
           className="searchBar"
           type="text"
@@ -23,9 +28,16 @@ class SearchBar extends Component {
           name="q"
           onChange={this.handleChange}
         />
-        <PBtn className="icon-button" type="submit">
-          <i className="fas fa-search"></i>
-        </PBtn>
+        <Link
+          as={`/my-blog/${this.state.searchBox}`}
+          href={`/my-blog?q=${this.state.searchBox}`}
+        >
+          <a>
+            <PBtn className="icon-button" type="submit">
+              <i className="fas fa-search"></i>
+            </PBtn>
+          </a>
+        </Link>
       </form>
     );
   }

@@ -93,4 +93,7 @@ const Layout = props => {
   );
 };
 
+Layout.getInitialProps = async function(){
+  
+}
 export default Layout;

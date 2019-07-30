@@ -6,7 +6,7 @@ import Link from "next/link";
 import Layout from "../Components/Layout/Layout";
 import api from "../utils/api";
 import "isomorphic-fetch";
-
+import Card from "../Components/Card";
 // class Blogs extends Component {
 const Blogs = props => {
   return (
@@ -15,21 +15,18 @@ const Blogs = props => {
         <NavNext />
         <IconNav />
         <ConvertKit />
-        <div className="container-fluid">
-          <div className="row-contained">
+        <div className="container">
+          <div className="columns is-multiline is-centered">
             {props.blogs.map((blog, index) => {
               if (blog.live) {
                 return (
-                  <div className="col-xl-4" key={index}>
-                    <img className="slider-img" src={blog.img} alt="" />
-                    <p>
-                      <Link
-                        as={`/blog/${blog.title}`}
-                        href={`/blog?q=${blog.title}`}
-                      >
-                        <a>{blog.title}</a>
-                      </Link>
-                    </p>
+                  <div className="column is-3" key={index}>
+                    <Card
+                      title={blog.title}
+                      img={blog.img}
+                      description={blog.description}
+                      category={blog.category.split(",")[0]}
+                    />
                   </div>
                 );
               }
