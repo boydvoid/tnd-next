@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import PBtn from "../Components/PBtn";
 import Input from "../Components/Input";
-import IconNav from "../Components/IconNav";
-import NavNext from "../Components/NavNext";
+import Header from "../Components/Header";
 import api from "../utils/api";
 import Router from "next/router";
 const Freebies = props => {
@@ -13,8 +12,7 @@ const Freebies = props => {
   };
   return (
     <div className="freebies">
-      <NavNext />
-      <IconNav />
+      <Header />
       <div className="container">
         <div className="row">
           {props.user ? (

@@ -1,0 +1,73 @@
+.blogPage {
+  overflow: hidden;
+
+  ul li {
+    float: left;
+    padding: 0px 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .blog-title {
+    padding: 20px;
+  }
+
+  .title-container {
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+    .Reading {
+      background-color: $lightBlue;
+      border: 1px solid $darkBlue;
+      color: $darkPurple;
+      font-weight: 700;
+    }
+
+    .Math {
+      background-color: #C0BCFD;
+      border: 1px solid rgb(88, 77, 255);
+      color: $darkPurple;
+      font-weight: 700;
+    }
+
+    .Holidays {
+
+      background-color: #FDBCD6;
+      border: 1px solid rgb(250, 104, 162);
+      color: $darkPurple;
+      font-weight: 700;
+    }
+
+    .Writing {
+
+      background-color: #FDF7BC;
+      border: 1px solid rgb(248, 235, 113);
+      color: $darkPurple;
+      font-weight: 700;
+    }
+
+    .Ideas {
+      background-color: #FDD2BC;
+      border: 1px solid rgb(250, 145, 93);
+      ;
+      color: $darkPurple;
+      font-weight: 700;
+    }
+  }
+
+  .social-icons {
+    background: none;
+    color: $darkPurple;
+    border: none;
+    font-size: 20px;
+    padding-top: 20px;
+    text-transform: none;
+  }
+
+
+}

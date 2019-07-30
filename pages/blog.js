@@ -13,48 +13,24 @@ import Input from "../Components/Input";
 import Layout from "../Components/Layout/Layout";
 import Header from "../Components/Header";
 import { useRouter } from "next/router";
+
 import "isomorphic-fetch";
-// class BlogPage extends Component {
-//   state = {
-//     blog: {}
-//   };
 
-//   // componentdidmount() {
-//   //   api.loadblog().then(blog => {
-//   //     .setstate({
-//   //       blog: blog
-//   //     });
-//   //   });
-//   // }
-//   static async getInitialProps({ req, query }) {
-//     const baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
-//     console.log(req.query.q);
-//     const response = await fetch(baseUrl + "/api/blog/load/" + req.query.q);
-
-//     const blogs = await response.json();
-//     return { blogs: blogs };
-//   }
-//   render() {
-//     return (
-
-//     );
-//   }
-// }
 const BlogPage = props => {
-  // const [id, setId] = useState("");
-  // const [editorHTML, setEditorHTML] = useState({ __html: "<p></p>" });
-  // const [titleInputVal, setTitleInputVal] = useState("");
-  // const [date, setDate] = useState("");
-  // const [imageUrl, setImageUrl] = useState("");
-
+  const categories = props.blogs.category.split(",");
   return (
     <Layout>
       <div className="blogPage">
         <Header />
         <div className="container-fluid blog-container">
-          <div className="row">
-            <div className="col-xl-12 center">
+          <div className="columns is-centered">
+            <div className="column is-8">
               <div className="title-container">
+                <div className="categories">
+                  {categories.map(category => {
+                    return <p className={`tag ${category}`}>{category}</p>;
+                  })}
+                </div>
                 <h1 className="blog-title">{props.blogs.title}</h1>
                 <p>By: Jennifer Larson</p>
                 <p>{props.blogs.date}</p>
@@ -62,6 +38,7 @@ const BlogPage = props => {
                   <li>
                     {" "}
                     <PBtn
+                      className="social-icons"
                       link="https://www.facebook.com/TheTeacherNextDoor"
                       external={true}
                     >
@@ -71,6 +48,7 @@ const BlogPage = props => {
                   <li>
                     {" "}
                     <PBtn
+                      className="social-icons"
                       link="https://www.instagram.com/theteachernextdoor/"
                       external={true}
                     >
@@ -80,6 +58,7 @@ const BlogPage = props => {
                   <li>
                     {" "}
                     <PBtn
+                      className="social-icons"
                       link="https://www.pinterest.com/TeacherNextDoor/"
                       external={true}
                     >
@@ -89,6 +68,7 @@ const BlogPage = props => {
                   <li>
                     {" "}
                     <PBtn
+                      className="social-icons"
                       link="https://www.teacherspayteachers.com/Store/The-Teacher-Next-Door"
                       external={true}
                     >
@@ -97,7 +77,13 @@ const BlogPage = props => {
                   </li>
                 </ul>
               </div>
-              <div className="preview">
+            </div>
+          </div>
+        </div>
+        <div className="preview">
+          <div className="container blog-text">
+            <div className="columns is-centered">
+              <div className="column is-6">
                 <span dangerouslySetInnerHTML={{ __html: props.blogs.blog }} />
               </div>
             </div>

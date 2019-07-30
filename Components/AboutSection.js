@@ -3,15 +3,15 @@ import Jenn from "../images/jennphoto.png";
 import PBtn from "./PBtn";
 const AboutSection = props => {
   return (
-    <div className="container about padding-top-30">
-      <div className="row">
-        <div className="col-xl-2">
+    <div className="container-fluid about padding-top-30">
+      <div className="columns is-centered">
+        <div className="column is-8">
           <img className="profile-img" src={Jenn} alt="" />
         </div>
       </div>
-      <div className="row">
-        <div className="col-xl-6 padding-30">
-          <p>
+      <div className="columns is-centered">
+        <div className="column is-6 padding-30">
+          <h2>
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -19,11 +19,12 @@ const AboutSection = props => {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa quiofficia deserunt mollit anim id est laborum."
-          </p>
+          </h2>
           <ul>
             <li>
               {" "}
               <PBtn
+                className="social-icons"
                 link="https://www.facebook.com/TheTeacherNextDoor"
                 external={true}
               >
@@ -33,6 +34,8 @@ const AboutSection = props => {
             <li>
               {" "}
               <PBtn
+                className="social-icons"
+                link="https://www.facebook.com/TheTeacherNextDoor"
                 link="https://www.instagram.com/theteachernextdoor/"
                 external={true}
               >
@@ -42,6 +45,8 @@ const AboutSection = props => {
             <li>
               {" "}
               <PBtn
+                className="social-icons"
+                link="https://www.facebook.com/TheTeacherNextDoor"
                 link="https://www.pinterest.com/TeacherNextDoor/"
                 external={true}
               >
@@ -51,6 +56,8 @@ const AboutSection = props => {
             <li>
               {" "}
               <PBtn
+                className="social-icons"
+                link="https://www.facebook.com/TheTeacherNextDoor"
                 link="https://www.teacherspayteachers.com/Store/The-Teacher-Next-Door"
                 external={true}
               >
