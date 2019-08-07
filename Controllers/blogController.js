@@ -71,9 +71,17 @@ module.exports = {
         res.send(done);
       });
   },
+  loadFour: (req, res) => {
+    const query = req.params.category.replace(/\+/g, " ");
+    db.blogs
+      .find({ category: { $regex: query, $options: "i" } })
+      .limit(4)
+      .then(blogs => {
+        res.send(blogs);
+      });
+  },
   search: (req, res) => {
     const query = req.params.search.replace(/\+/g, " ");
-    let allBlogs = [];
     db.blogs
       .find({
         $or: [

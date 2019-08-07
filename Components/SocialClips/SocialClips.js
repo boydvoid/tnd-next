@@ -30,22 +30,15 @@ const SocialClips = props => {
           <div className="column is-4">
             <h2>Instagram</h2>
             <iframe
-              src="//lightwidget.com/widgets/c511f50626a653be9026276d394b2c30.html"
+              src="//lightwidget.com/widgets/ea1e46164c8058c9bdca119a327a1ce4.html"
               scrolling="no"
               allowtransparency="true"
-              className="lightwidget-widget"
+              class="lightwidget-widget"
               style={{ width: "100%", border: "0", overflow: "hidden" }}
             ></iframe>
           </div>
         </div>
       </div>
-      <style jsx global>
-        {`
-          .social {
-            background-color: rgb(231, 231, 231);
-          }
-        `}
-      </style>
     </div>
   );
 };

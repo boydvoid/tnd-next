@@ -1,11 +1,15 @@
 @import './_vars.scss';
 @import "./navbar.scss";
+@import "./adminnav.scss";
+@import "./admin.scss";
+@import "./adminlogin.scss";
 @import "./iconNav.scss";
 @import "./convertKit.scss";
 @import "./collectionSlider.scss";
 @import "./slide.scss";
 @import "./my-blog.scss";
 @import "./blog.scss";
+@import "./miniConvert.scss";
 @import "../node_modules/bulma/bulma.sass";
 
 $primary: 'Cabin',
@@ -91,6 +95,7 @@ p {
 
 .about {
   background-color: $lightBlue;
+  text-align: center;
 
   .social-icons {
     background: none;
@@ -100,5 +105,30 @@ p {
     padding-top: 20px;
     text-transform: none;
 
+  }
+
+}
+
+.PIN_1564504573728_embed_grid {
+  width: 400px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+// pinterst
+.inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  p {
+    padding: 10px;
+  }
+
+  img {
+    width: 50px;
+    height: 62px;
   }
 }

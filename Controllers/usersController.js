@@ -5,6 +5,7 @@ const db = require("../Models");
 
 module.exports = {
   checkLogin: (req, res) => {
+    console.log(req.isAuthenticated());
     if (req.isAuthenticated()) {
       console.log(`User Controller Check Login: 👍`);
       // send user id to client

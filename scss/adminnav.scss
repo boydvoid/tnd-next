@@ -1,0 +1,50 @@
+.admin-navbar {
+  display: flex;
+  height: 76px;
+  align-items: center;
+  background-color: #7C7093;
+  padding: 0 130px;
+  border-bottom: 1px solid #c6c6c6;
+  margin-bottom: 30px;
+
+  .title {
+    background: rgb(255, 255, 255);
+    width: 100%;
+    max-width: 145px;
+    text-align: center;
+    padding: 11px;
+    color: #695395;
+    font-weight: 700;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #navbarNav {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  #navbarNav ul {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  #navbarNav .active {
+    border-bottom: 3px solid #ffffff;
+  }
+
+  #navbarNav ul li {
+    float: left;
+    margin: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}

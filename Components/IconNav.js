@@ -21,7 +21,7 @@ const IconNav = props => (
       <div className="navbar-end">
         <ul>
           <li>
-            <Link as={`/my-blog/reading`} href="/my-blog?q=reading">
+            <Link as={`/reading`} href="/reading?q=reading">
               <a className="icon-link-tags">
                 <img src={BookIcon} className="icons" alt="" />
                 Reading
@@ -29,7 +29,7 @@ const IconNav = props => (
             </Link>
           </li>
           <li>
-            <Link as={`/my-blog/writing`} href="/my-blog?q=writing">
+            <Link as={`/writing`} href="/writing?q=writing">
               <a className="icon-link-tags">
                 <img src={Pencil} className="icons" alt="" />
                 Writing & Grammar
@@ -37,7 +37,7 @@ const IconNav = props => (
             </Link>
           </li>
           <li>
-            <Link as={`/my-blog/math`} href="/my-blog?q=math">
+            <Link as={`/math`} href="/math?q=math">
               <a className="icon-link-tags">
                 <img src={Calc} className="icons" alt="" />
                 Math
@@ -45,7 +45,7 @@ const IconNav = props => (
             </Link>
           </li>
           <li>
-            <Link as={`/my-blog/holidays`} href="/my-blog?q=holidays">
+            <Link as={`/holidays`} href="/holidays?q=holidays">
               <a className="icon-link-tags">
                 <img src={Mug} className="icons" alt="" />
                 Holidays
@@ -53,7 +53,7 @@ const IconNav = props => (
             </Link>
           </li>
           <li>
-            <Link as={`/my-blog/classroom`} href="/my-blog?q=classroom">
+            <Link as={`/ideas`} href="/ideas?q=ideas">
               <a className="icon-link-tags">
                 <img src={Light} className="icons" alt="" />
                 Classroom Ideas

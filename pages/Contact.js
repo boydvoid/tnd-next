@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import PBtn from "../Components/PBtn/PBtn";
-import Input from "../Components/Input/Input";
-import IconNav from "../Components/IconNav/IconNav";
-import Navlinks from "../Components/Navlinks/Navlinks";
+import PBtn from "../Components/PBtn";
+import Input from "../Components/Input";
+import IconNav from "../Components/IconNav";
 const Contact = props => {
   return (
     <div className="contact">

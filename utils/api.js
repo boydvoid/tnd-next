@@ -27,6 +27,9 @@ export default {
   loadBlog: data => {
     return axios.get(`/api/blog/load/${data}`);
   },
+  loadFour: category => {
+    return axios.get(`/api/blog/loadFour/${category}`);
+  },
   newBlog: data => {
     return axios.post(`/api/blog/new`, data);
   },
@@ -44,6 +47,12 @@ export default {
   },
   retrieveLinks: () => {
     return axios.get("/api/slider/retrieveLinks");
+  },
+  loadImages: () => {
+    return axios.get(`/api/images/`);
+  },
+  upload: data => {
+    return axios.post(`/api/upload`, data);
   },
   submitSubscriber: data => {
     return axios.post(

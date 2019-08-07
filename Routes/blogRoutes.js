@@ -8,6 +8,7 @@ const blogController = require("../Controllers/blogController");
 router.route("/blog/loadall").get(blogController.loadall);
 
 router.route("/blog/load/:title").get(blogController.load);
+router.route("/blog/loadFour/:category").get(blogController.loadFour);
 
 router.route("/blog/save").post(blogController.save);
 

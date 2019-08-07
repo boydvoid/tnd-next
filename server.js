@@ -3,8 +3,9 @@ const app = express();
 const next = require("next");
 const dev = process.env.NODE_ENV !== "production";
 const path = require("path");
+const multer = require("multer");
 const mongoose = require("mongoose");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const passport = require("passport");
 const expressValidator = require("express-validator");
 const session = require("express-session");
@@ -16,6 +17,7 @@ const bcrypt = require("bcrypt");
 const User = require("./Routes/userRoutes");
 const Blogs = require("./Routes/blogRoutes");
 const Slider = require("./Routes/sliderRoutes");
+const Images = require("./Routes/imageRoutes");
 // Create the Express-Next App
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
@@ -25,6 +27,55 @@ nextApp
   .prepare()
   .then(() => {
     const server = express();
+
+    //Storage for images
+    const storage = multer.diskStorage({
+      destination: "./public/uploads/",
+      filename: function(req, file, cb) {
+        cb(
+          null,
+          file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+        );
+      }
+    });
+
+    //cors info
+
+    server.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+      res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+      );
+      next();
+    });
+
+    // Init Upload
+    const upload = multer({
+      storage: storage,
+      limits: { fileSize: 1000000 },
+      fileFilter: function(req, file, cb) {
+        checkFileType(file, cb);
+      }
+    }).single("myImage");
+
+    // Check File Type
+    function checkFileType(file, cb) {
+      // Allowed ext
+      const filetypes = /jpeg|jpg|png|gif/;
+      // Check ext
+      const extname = filetypes.test(
+        path.extname(file.originalname).toLowerCase()
+      );
+      // Check mime
+      const mimetype = filetypes.test(file.mimetype);
+
+      if (mimetype && extname) {
+        return cb(null, true);
+      } else {
+        cb("Error: Images Only!");
+      }
+    }
 
     server.use(express.urlencoded({ extended: true }));
     server.use(express.json());
@@ -60,7 +111,13 @@ nextApp
     server.use("/api", User);
     server.use("/api", Blogs);
     server.use("/api", Slider);
+    server.use("/api", Images);
 
+    //serve images
+    server.use(
+      "/public/uploads",
+      express.static(path.join(__dirname, "public/uploads"))
+    );
     //  Passport use
     passport.use(
       new LocalStrategy((username, password, done) => {
@@ -96,6 +153,10 @@ nextApp
     //   return app.render(req, res, "/blog", { slug: req.params.slug });
     // });
 
+    server.get("/", (req, res) => {
+      return nextApp.render(req, res, "/");
+    });
+
     server.get("/blog/:slug", (req, res) => {
       return nextApp.render(req, res, "/blog", { q: req.params.slug });
     });
@@ -104,12 +165,45 @@ nextApp
       return nextApp.render(req, res, "/my-blog", { q: req.params.slug });
     });
 
+    server.get("/admin", (req, res) => {
+      if (req.isAuthenticated()) {
+        return nextApp.render(req, res, "/admin");
+      } else {
+        return nextApp.render(req, res, "/admin-login");
+      }
+    });
+
     server.get("*", (req, res) => {
       return handle(req, res);
     });
+
+    server.post("/api/upload", (req, res) => {
+      console.log(req.file);
+      upload(req, res, err => {
+        if (err) {
+          res.send({
+            msg: err
+          });
+        } else {
+          if (req.file === undefined) {
+            res.send({
+              msg: "No file selected"
+            });
+          } else {
+            //store file in db
+            db.images.create(req.file).then(done => {
+              res.send({
+                msg: "File Uploaded",
+                file: `uploads/${req.file.filename}`
+              });
+            });
+          }
+        }
+      });
+    });
     server.listen(port, err => {
       if (err) throw err;
-      console.log("> Ready on http://localhost:3000");
+      console.log("> Ready on http://localhost:5000");
     });
   })
   .catch(ex => {

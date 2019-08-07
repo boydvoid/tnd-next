@@ -12,6 +12,7 @@ import Link from "next/link";
 import FooterNext from "../Components/FooterNext";
 import "isomorphic-fetch";
 import Header from "../Components/Header";
+import Head from "next/head";
 class Home extends Component {
   static async getInitialProps({ req }) {
     const baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
@@ -24,6 +25,10 @@ class Home extends Component {
   render() {
     return (
       <Layout>
+        <Head>
+          <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+          <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+        </Head>
         <div className="wrapper-home">
           <Header />
           <Jumbotron mainImage={Slider} />
