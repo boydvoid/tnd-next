@@ -12,6 +12,7 @@ const Images = props => {
   const loadBlogs = () => {
     api.loadImages().then(data => {
       setImages(data.data);
+      console.log(data.data);
     });
   };
 
@@ -49,21 +50,13 @@ const Images = props => {
                 <p>Categories</p>
               </div>
             </div>
-            {/* {images.map((blog, index) => {
+            {images.map((image, index) => {
               return (
-                <div className="row-contained">
-                  <div className="blogDisplay">
-                    <div className="col-xl-3">
-                      <Link to={`/blog/${blog._id}`}>{blog.title}</Link>
-                    </div>
-                    <div className="col-xl-1">{blog.date}</div>
-                    <div className="col-xl-1">{blog.views}</div>
-                    <div className="col-xl-1">{blog.live.toString()}</div>
-                    <div className="col-xl-2">{blog.category}</div>
-                  </div>
+                <div>
+                  <img src={`http://localhost:5000/${image.path}`} alt="" />
                 </div>
               );
-            })} */}
+            })}
           </div>
         </div>
       </div>
