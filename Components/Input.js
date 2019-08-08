@@ -9,6 +9,7 @@ const Input = props => (
       name={props.name}
       onChange={props.onChange}
       id={props.id}
+      defaultValue={props.defaultValue}
     />
     <style jsx>{``}</style>
   </div>

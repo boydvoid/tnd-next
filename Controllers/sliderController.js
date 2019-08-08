@@ -19,22 +19,21 @@ module.exports = {
     });
   },
   save: (req, res) => {
-    db.blogs
+    console.log(req.body._id);
+    db.slider
       .updateOne(
         //need to get id from form
-        { _id: req.body.id },
+        { _id: req.body._id },
         {
           $set: {
-            username: req.body.username,
-            blog: req.body.blog,
             title: req.body.title,
-            img: req.body.img,
-            live: req.body.live,
-            category: req.body.category
+            link: req.body.link,
+            img: req.body.img
           }
         }
       )
       .then(done => {
+        console.log(done);
         res.send(done);
       })
       .catch(err => {

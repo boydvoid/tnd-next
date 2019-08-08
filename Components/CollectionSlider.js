@@ -2,49 +2,8 @@ import React, { Component } from "react";
 import PBtn from "./PBtn";
 import Slider from "react-slick";
 import Present from "../images/Q.png";
+import api from "../utils/api";
 class CollectionSlider extends Component {
-  state = {
-    items: [
-      {
-        img:
-          "https://ecdn.teacherspayteachers.com/thumbitem/Nonfiction-Reading-Games-Reading-Centers-3244260-1547399353/original-3244260-1.jpg",
-        link:
-          "https://www.teacherspayteachers.com/Product/Inferences-Using-Literature-for-3rd-5th-Grades-935588"
-      },
-      {
-        img:
-          "https://ecdn.teacherspayteachers.com/thumbitem/Nonfiction-Reading-Games-Reading-Centers-3244260-1547399353/original-3244260-1.jpg",
-        link:
-          "https://www.teacherspayteachers.com/Product/Inferences-Using-Literature-for-3rd-5th-Grades-935588"
-      },
-      {
-        img:
-          "https://ecdn.teacherspayteachers.com/thumbitem/Nonfiction-Reading-Games-Reading-Centers-3244260-1547399353/original-3244260-1.jpg",
-        link:
-          "https://www.teacherspayteachers.com/Product/Inferences-Using-Literature-for-3rd-5th-Grades-935588"
-      },
-      {
-        img:
-          "https://ecdn.teacherspayteachers.com/thumbitem/Nonfiction-Reading-Games-Reading-Centers-3244260-1547399353/original-3244260-1.jpg",
-        link:
-          "https://www.teacherspayteachers.com/Product/Inferences-Using-Literature-for-3rd-5th-Grades-935588"
-      },
-      {
-        img:
-          "https://ecdn.teacherspayteachers.com/thumbitem/Nonfiction-Reading-Games-Reading-Centers-3244260-1547399353/original-3244260-1.jpg",
-        link:
-          "https://www.teacherspayteachers.com/Product/Inferences-Using-Literature-for-3rd-5th-Grades-935588"
-      },
-      {
-        img:
-          "https://ecdn.teacherspayteachers.com/thumbitem/Nonfiction-Reading-Games-Reading-Centers-3244260-1547399353/original-3244260-1.jpg",
-        link:
-          "https://www.teacherspayteachers.com/Product/Inferences-Using-Literature-for-3rd-5th-Grades-935588",
-        name: "Link Name"
-      }
-    ]
-  };
-
   render() {
     var settings = {
       infinite: true,
@@ -60,7 +19,7 @@ class CollectionSlider extends Component {
           <img src={Present} alt="" />
           <h1>My Products</h1>
           <Slider {...settings}>
-            {this.state.items.map((item, index) => {
+            {this.props.items.map((item, index) => {
               return <img src={item.img} alt="" />;
             })}
           </Slider>

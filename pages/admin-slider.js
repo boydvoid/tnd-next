@@ -9,8 +9,7 @@ const AdminSlider = () => {
   const [images, setImages] = useState([]);
   useEffect(() => {
     loadImages();
-    console.log(images);
-  });
+  }, []);
   const newImage = async () => {
     let data = {
       title: "New Image",
@@ -30,8 +29,10 @@ const AdminSlider = () => {
 
   const saveSlider = e => {
     e.preventDefault();
+    console.log(e.target.dataset["id"]);
     const data = new FormData(e.target);
     let newSlide = {
+      _id: e.target.dataset["id"],
       title: data.get("title"),
       link: data.get("link"),
       img: data.get("img")
@@ -55,21 +56,24 @@ const AdminSlider = () => {
                   <img src={Temp} alt="" />
                   <Input
                     type="text"
-                    value={image.title}
+                    defaultValue={image.title}
                     placeholder="Title"
                     name="title"
+                    // onChange={handleChange}
                   />
                   <Input
                     type="text"
-                    value={image.link}
+                    defaultValue={image.link}
                     placeholder="Link"
                     name="link"
+                    // onChange={handleChange}
                   />
                   <Input
                     type="text"
-                    value={image.img}
+                    defaultValue={image.img}
                     placeholder="Image URL"
                     name="img"
+                    // onChange={handleChange}
                   />
                   <PBtn type="submit">Save</PBtn>
                 </div>

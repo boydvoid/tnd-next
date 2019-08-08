@@ -17,9 +17,11 @@ class Home extends Component {
   static async getInitialProps({ req }) {
     const baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
     const response = await fetch(baseUrl + "/api/blog/loadall");
-
+    const sliderItems = await fetch(baseUrl + "/api/slider/loadall/");
     const blogs = await response.json();
-    return { blogs: blogs };
+    const items = await sliderItems.json();
+    console.log(items);
+    return { blogs: blogs, items: items };
   }
 
   render() {
@@ -33,7 +35,7 @@ class Home extends Component {
           <Header />
           <Jumbotron mainImage={Slider} />
           <ConvertKit title="JOIN MY NEWSLETTER!" />
-          <CollectionSlider />
+          <CollectionSlider items={this.props.items} />
           <BlogSlider blogs={this.props.blogs} />
           <SocialClips />
           <AboutSection />
