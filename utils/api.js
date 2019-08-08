@@ -54,6 +54,18 @@ export default {
   upload: data => {
     return axios.post(`/api/upload`, data);
   },
+  deleteImage: data => {
+    return axios.put(`/api/image/delete`, data);
+  },
+  newSliderImage: data => {
+    return axios.post("/api/slider/addLink", data);
+  },
+  loadSliderImages: () => {
+    return axios.get("/api/slider/loadall");
+  },
+  saveSlider: data => {
+    return axios.post(`/api/slide/save`, data);
+  },
   submitSubscriber: data => {
     return axios.post(
       "https://api.convertkit.com/v3/forms/988284/subscribe?api_key=TYgg8lXToCzj3_E7q4JnLw",

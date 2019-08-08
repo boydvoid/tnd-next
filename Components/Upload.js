@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../utils/api";
 
-const Upload = () => {
+const Upload = props => {
   const [file, setFile] = useState("");
   const [text, setText] = useState("");
   const submit = e => {
@@ -15,6 +15,7 @@ const Upload = () => {
         setFile("");
         setText("File Uploaded");
         document.getElementById("file-input").value = null;
+        props.loadImages();
       }
     });
   };

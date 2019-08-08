@@ -4,8 +4,11 @@ import PBtn from "../Components/PBtn";
 import Link from "next/link";
 import api from "../utils/api";
 import Layout from "../Components/Layout/Layout";
+import Toast from "../Components/toast";
 const Admin = props => {
   const [blogs, setBlogs] = useState([]);
+  const [toastText, setToastText] = useState("");
+  const [toastClass, setToastClass] = useState("hide");
   useEffect(() => {
     loadBlogs();
   }, []);
@@ -17,22 +20,44 @@ const Admin = props => {
   };
 
   const newBlog = () => {
+    let newTitle = `New Blog ${blogs.length + 1}`;
     let data = {
-      username: props.username,
-      title: "New Blog",
+      username: "admin",
+      title: newTitle,
       img: "",
       live: false,
       views: 0,
       category: "Reading"
     };
     api.newBlog(data).then(done => {
-      console.log(done);
-      loadBlogs();
+      if (done.data !== null || done.data !== undefined) {
+        if (done.data.err === "duplicate title") {
+          setToastText("That title already exists.");
+          showToast();
+        } else {
+          setToastText(`${newTitle} was created.`);
+          showToast();
+          loadBlogs();
+        }
+      }
     });
+  };
+
+  const showToast = () => {
+    setToastClass("showToast");
+    setTimeout(() => {
+      setToastClass("hideToast");
+    }, 5000);
+
+    setTimeout(() => {
+      setToastText("");
+    }, 7000);
   };
 
   return (
     <Layout>
+      {/* toast message on error */}
+      <Toast className={toastClass} text={toastText} />
       <div className="container-fluid admin">
         <AdminNav />
         <div className="container">
@@ -70,7 +95,7 @@ const Admin = props => {
                   <div className="row-contained">
                     <div className="blogDisplay">
                       <div className="col-xl-3">
-                        <Link href={`/blog/${blog._id}`}>
+                        <Link href={`/admin-blog/${blog.title}`}>
                           <a>{blog.title}</a>
                         </Link>
                       </div>

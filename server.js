@@ -3,6 +3,7 @@ const app = express();
 const next = require("next");
 const dev = process.env.NODE_ENV !== "production";
 const path = require("path");
+const fs = require("fs");
 const multer = require("multer");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 5000;
@@ -173,6 +174,28 @@ nextApp
       }
     });
 
+    server.get("/admin-images", (req, res) => {
+      if (req.isAuthenticated()) {
+        return nextApp.render(req, res, "/admin-images");
+      } else {
+        return nextApp.render(req, res, "/admin-login");
+      }
+    });
+
+    server.get("/admin-slider", (req, res) => {
+      if (req.isAuthenticated()) {
+        return nextApp.render(req, res, "/admin-slider");
+      } else {
+        return nextApp.render(req, res, "/admin-login");
+      }
+    });
+    server.get("/admin-blog/:slug", (req, res) => {
+      if (req.isAuthenticated()) {
+        return nextApp.render(req, res, "/admin-blog", { q: req.params.slug });
+      } else {
+        return nextApp.render(req, res, "/admin-login");
+      }
+    });
     server.get("*", (req, res) => {
       return handle(req, res);
     });
@@ -201,6 +224,20 @@ nextApp
         }
       });
     });
+
+    server.put("/api/image/delete", (req, res) => {
+      console.log(__dirname + "/" + req.body.path);
+      fs.unlink(__dirname + "/" + req.body.path, err => {
+        db.images
+          .findOneAndRemove({
+            path: req.body.path
+          })
+          .then(done => {
+            res.send({ msg: "removed" });
+          });
+      });
+    });
+
     server.listen(port, err => {
       if (err) throw err;
       console.log("> Ready on http://localhost:5000");

@@ -26,6 +26,10 @@ module.exports = {
       )
       .then(done => {
         res.send(done);
+      })
+      .catch(err => {
+        console.log("err: " + err);
+        res.send({ err: "duplicate title" });
       });
   },
   new: (req, res) => {
@@ -41,6 +45,10 @@ module.exports = {
       })
       .then(done => {
         res.send(done);
+      })
+      .catch(err => {
+        console.log("err: " + err);
+        res.send({ err: "duplicate title" });
       });
   },
   loadall: (req, res) => {
