@@ -3,7 +3,7 @@ import PBtn from "../Components/PBtn";
 import Input from "../Components/Input";
 import Header from "../Components/Header";
 import api from "../utils/api";
-import Router from "next/router";
+import Link from "next/link";
 const Freebies = props => {
   const logout = async () => {
     await api.logout();
@@ -18,6 +18,20 @@ const Freebies = props => {
           {props.user ? (
             <div className="col-xl-12">
               <PBtn onClick={logout}>Logout</PBtn>
+              <div className="container">
+                <div className="columns">
+                  {props.freebies.map((freebie, index) => {
+                    return (
+                      <div className="column is-3">
+                        <img src={freebie.img} alt="" />
+                        <Link href={freebie.path}>
+                          <a>Download</a>
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           ) : (
             <div className="col-xl-12">
@@ -44,4 +58,12 @@ const Freebies = props => {
   );
 };
 
+Freebies.getInitialProps = async function({ req, query }) {
+  console.log(query);
+  const baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
+  const response = await fetch(baseUrl + "/api/freebies");
+
+  const freebies = await response.json();
+  return { freebies: freebies };
+};
 export default Freebies;

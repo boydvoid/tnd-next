@@ -8,6 +8,7 @@ const PBtn = props => (
         type={props.type}
         className={`button primary-button ${props.className}`}
         onClick={props.onClick}
+        data-data={props.data}
       >
         {props.children}
       </button>

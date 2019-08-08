@@ -3,7 +3,11 @@ import PBtn from "./PBtn";
 import Slider from "react-slick";
 import Present from "../images/Q.png";
 import api from "../utils/api";
+import Link from "next/link";
 class CollectionSlider extends Component {
+  componentDidMount() {
+    console.log(this.props.items);
+  }
   render() {
     var settings = {
       infinite: true,
@@ -20,7 +24,13 @@ class CollectionSlider extends Component {
           <h1>My Products</h1>
           <Slider {...settings}>
             {this.props.items.map((item, index) => {
-              return <img src={item.img} alt="" />;
+              return (
+                <Link href={item.link}>
+                  <a>
+                    <img src={item.img} alt="" />;
+                  </a>
+                </Link>
+              );
             })}
           </Slider>
           <div className="columns is-centered">

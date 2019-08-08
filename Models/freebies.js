@@ -1,21 +1,20 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-mongoose.set('useFindAndModify', false)
+mongoose.set("useFindAndModify", false);
 
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
-const freebieschema = new Schema ({
-	link: {type: String, required: true}, 
-	title: {type: String, required: true}, 
-	date: {type: String, default: convertDate()},
-	img: {type: String, required: false},
-	live: {type: Boolean, required: true},
-  category: {type: String, required: true}
-})
+const freebieschema = new Schema({
+  fieldname: { type: String, required: true },
+  originalname: { type: String, required: true },
+  encoding: { type: String, required: true },
+  mimetype: { type: String, required: true },
+  destination: { type: String, required: true },
+  filename: { type: String, required: true },
+  path: { type: String, required: true },
+  size: { type: String, required: true },
+  img: { type: String, required: false }
+});
 
-function convertDate() {
-	const date = new Date().toDateString()
-	return date
-}
-const freebies = mongoose.model('freebies', freebieschema)
+const freebies = mongoose.model("freebies", freebieschema);
 module.exports = freebies;

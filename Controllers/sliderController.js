@@ -15,6 +15,8 @@ module.exports = {
   },
   loadall: (req, res) => {
     db.slider.find({}).then(done => {
+      console.log(`data ${done}`);
+      console.log(1);
       res.send(done);
     });
   },

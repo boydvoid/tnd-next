@@ -29,7 +29,11 @@ const AdminNav = props => (
             <a>Slider Images</a>
           </Link>
         </li>
-        <li>Freebies</li>
+        <li>
+          <Link href="/admin-freebies">
+            <a>Freebies</a>
+          </Link>
+        </li>
         <li>Go to Site</li>
       </ul>
     </div>

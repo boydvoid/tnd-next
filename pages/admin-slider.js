@@ -17,7 +17,7 @@ const AdminSlider = () => {
       img: ""
     };
     const res = await api.newSliderImage(data);
-    console.log(res);
+    console.log(`slider: ${res}`);
     loadImages();
   };
 

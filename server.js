@@ -19,6 +19,7 @@ const User = require("./Routes/userRoutes");
 const Blogs = require("./Routes/blogRoutes");
 const Slider = require("./Routes/sliderRoutes");
 const Images = require("./Routes/imageRoutes");
+const Freebies = require("./Routes/freebiesRoutes");
 // Create the Express-Next App
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
@@ -40,6 +41,12 @@ nextApp
       }
     });
 
+    const freebiesStorage = multer.diskStorage({
+      destination: "./public/freebies/",
+      filename: function(req, file, cb) {
+        cb(null, "Freebie-" + Date.now() + path.extname(file.originalname));
+      }
+    });
     //cors info
 
     server.use(function(req, res, next) {
@@ -60,6 +67,13 @@ nextApp
       }
     }).single("myImage");
 
+    const freebiesUpload = multer({
+      storage: freebiesStorage,
+      limits: { fileSize: 10000000 },
+      fileFilter: function(req, file, cb) {
+        checkZipType(file, cb);
+      }
+    }).single("myImage");
     // Check File Type
     function checkFileType(file, cb) {
       // Allowed ext
@@ -77,7 +91,22 @@ nextApp
         cb("Error: Images Only!");
       }
     }
+    function checkZipType(file, cb) {
+      // Allowed ext
+      const filetypes = /zip/;
+      // Check ext
+      const extname = filetypes.test(
+        path.extname(file.originalname).toLowerCase()
+      );
+      // Check mime
+      const mimetype = filetypes.test(file.mimetype);
 
+      if (mimetype && extname) {
+        return cb(null, true);
+      } else {
+        cb("Error: Zips Only!");
+      }
+    }
     server.use(express.urlencoded({ extended: true }));
     server.use(express.json());
     server.use(expressValidator());
@@ -113,11 +142,17 @@ nextApp
     server.use("/api", Blogs);
     server.use("/api", Slider);
     server.use("/api", Images);
+    server.use("/api", Freebies);
 
     //serve images
     server.use(
       "/public/uploads",
       express.static(path.join(__dirname, "public/uploads"))
+    );
+
+    server.use(
+      "/public/freebies",
+      express.static(path.join(__dirname, "public/freebies"))
     );
     //  Passport use
     passport.use(
@@ -149,10 +184,12 @@ nextApp
       })
     );
 
-    // //paramater routing
-    // server.get("/blog/:slug", (req, res) => {
-    //   return app.render(req, res, "/blog", { slug: req.params.slug });
-    // });
+    //check the logged in user
+    const checkUser = async id => {
+      let user = await db.users.findById(id);
+      let data = user.json();
+      return data;
+    };
 
     server.get("/", (req, res) => {
       return nextApp.render(req, res, "/");
@@ -167,34 +204,53 @@ nextApp
     });
 
     server.get("/admin", (req, res) => {
-      if (req.isAuthenticated()) {
-        return nextApp.render(req, res, "/admin");
-      } else {
-        return nextApp.render(req, res, "/admin-login");
-      }
+      db.users.findById(req.user).then(user => {
+        if (req.isAuthenticated() && user.username === "admin") {
+          return nextApp.render(req, res, "/admin");
+        } else {
+          return nextApp.render(req, res, "/admin-login");
+        }
+      });
     });
 
     server.get("/admin-images", (req, res) => {
-      if (req.isAuthenticated()) {
-        return nextApp.render(req, res, "/admin-images");
-      } else {
-        return nextApp.render(req, res, "/admin-login");
-      }
+      db.users.findById(req.user).then(user => {
+        if (req.isAuthenticated() && user.username === "admin") {
+          return nextApp.render(req, res, "/admin-images");
+        } else {
+          return nextApp.render(req, res, "/admin-login");
+        }
+      });
     });
 
     server.get("/admin-slider", (req, res) => {
-      if (req.isAuthenticated()) {
-        return nextApp.render(req, res, "/admin-slider");
-      } else {
-        return nextApp.render(req, res, "/admin-login");
-      }
+      db.users.findById(req.user).then(user => {
+        if (req.isAuthenticated() && user.username === "admin") {
+          return nextApp.render(req, res, "/admin-slider");
+        } else {
+          return nextApp.render(req, res, "/admin-login");
+        }
+      });
+    });
+    server.get("/admin-freebies", (req, res) => {
+      db.users.findById(req.user).then(user => {
+        if (req.isAuthenticated() && user.username === "admin") {
+          return nextApp.render(req, res, "/admin-freebies");
+        } else {
+          return nextApp.render(req, res, "/admin-login");
+        }
+      });
     });
     server.get("/admin-blog/:slug", (req, res) => {
-      if (req.isAuthenticated()) {
-        return nextApp.render(req, res, "/admin-blog", { q: req.params.slug });
-      } else {
-        return nextApp.render(req, res, "/admin-login");
-      }
+      db.users.findById(req.user).then(user => {
+        if (req.isAuthenticated() && req.user === "admin") {
+          return nextApp.render(req, res, "/admin-blog", {
+            q: req.params.slug
+          });
+        } else {
+          return nextApp.render(req, res, "/admin-login");
+        }
+      });
     });
     server.get("*", (req, res) => {
       return handle(req, res);
@@ -225,10 +281,49 @@ nextApp
       });
     });
 
+    server.post("/api/freebies/upload", (req, res) => {
+      freebiesUpload(req, res, err => {
+        let file = req.file;
+        file.img = "";
+        if (err) {
+          res.send({
+            msg: err
+          });
+        } else {
+          if (req.file === undefined) {
+            res.send({
+              msg: "No file selected"
+            });
+          } else {
+            //store file in db
+            db.freebies.create(req.file).then(done => {
+              res.send({
+                msg: "File Uploaded",
+                file: `uploads/${req.file.filename}`
+              });
+            });
+          }
+        }
+      });
+    });
+
     server.put("/api/image/delete", (req, res) => {
       console.log(__dirname + "/" + req.body.path);
       fs.unlink(__dirname + "/" + req.body.path, err => {
         db.images
+          .findOneAndRemove({
+            path: req.body.path
+          })
+          .then(done => {
+            res.send({ msg: "removed" });
+          });
+      });
+    });
+
+    server.put("/api/freebies/delete", (req, res) => {
+      console.log(__dirname + "/" + req.body.path);
+      fs.unlink(__dirname + "/" + req.body.path, err => {
+        db.freebies
           .findOneAndRemove({
             path: req.body.path
           })

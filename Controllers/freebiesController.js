@@ -1,16 +1,31 @@
-const db = "../Models";
+const db = require("../Models");
 
 module.exports = {
-  getAll: () => {
-    //get all of the freebies
+  loadall: (req, res) => {
+    console.log(req.body);
     db.freebies.find({}).then(done => {
       res.send(done);
     });
   },
-  getCategory: (req, res) => {
-    //get a certain category of freebies
-    db.freebies.find({
-      category: req.params.category
-    });
+  save: (req, res) => {
+    console.log(req.body);
+    db.freebies
+      .updateOne(
+        //need to get id from form
+        { _id: req.body._id },
+        {
+          $set: {
+            img: req.body.img
+          }
+        }
+      )
+      .then(done => {
+        console.log(done);
+        res.send(done);
+      })
+      .catch(err => {
+        console.log("err: " + err);
+        res.send({ err: err });
+      });
   }
 };

@@ -54,6 +54,25 @@ export default {
   upload: data => {
     return axios.post(`/api/upload`, data);
   },
+  loadFreebies: () => {
+    return axios.get(`/api/freebies/`);
+  },
+  freebiesUpload: data => {
+    return axios.post(`/api/freebies/upload`, data);
+  },
+  freebiesDownload: data => {
+    return axios.get(`/api/freebies/download/`, {
+      params: {
+        path: data
+      }
+    });
+  },
+  saveFreebie: data => {
+    return axios.post(`/api/freebies/save`, data);
+  },
+  deleteFreebies: data => {
+    return axios.put(`/api/freebies/delete`, data);
+  },
   deleteImage: data => {
     return axios.put(`/api/image/delete`, data);
   },

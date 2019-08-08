@@ -20,8 +20,9 @@ class Home extends Component {
     const sliderItems = await fetch(baseUrl + "/api/slider/loadall/");
     const blogs = await response.json();
     const items = await sliderItems.json();
-    console.log(items);
-    return { blogs: blogs, items: items };
+    console.log(`items: ${items}`);
+    let obj = { blogs: blogs, items: items };
+    return obj;
   }
 
   render() {
