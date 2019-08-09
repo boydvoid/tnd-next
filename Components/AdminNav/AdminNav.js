@@ -34,7 +34,11 @@ const AdminNav = props => (
             <a>Freebies</a>
           </Link>
         </li>
-        <li>Go to Site</li>
+        <li>
+          <Link href="/">
+            <a>Go to Site</a>
+          </Link>
+        </li>
       </ul>
     </div>
     <span className="ml-auto">

@@ -12,13 +12,16 @@ import htmlToDraft from "html-to-draftjs";
 import Input from "../Components/Input";
 import _ from "lodash";
 import api from "../utils/api";
-import { Editor } from "react-draft-wysiwyg";
+import EditorNew from "../Components/Editor";
 import Layout from "../Components/Layout/Layout";
 import ToggleSwitch from "../Components/ToggleSwitch";
 import createImagePlugin from "draft-js-image-plugin";
 import Toast from "../Components/toast";
+import DynamicComponent from "../Components/Dynamic";
+
 const imagePlugin = createImagePlugin();
 const plugins = [imagePlugin];
+
 const NewBlog = props => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [editorHTML, setEditorHTML] = useState({ __html: "<div></div>" });
@@ -28,7 +31,7 @@ const NewBlog = props => {
   const [imageurl, setImageurl] = useState("");
   const [live, setLive] = useState(false);
   const [checked, setChecked] = useState(false);
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState();
   const [toastText, setToastText] = useState("");
   const [toastClass, setToastClass] = useState("hide");
 
@@ -265,11 +268,8 @@ const NewBlog = props => {
 
                 <div className="editorWrapper">
                   <div>
-                    <Editor
+                    <DynamicComponent
                       editorState={editorState}
-                      toolbarClassName="toolbarClassName"
-                      wrapperClassName="wrapperClassName"
-                      editorClassName="editorClassName"
                       onEditorStateChange={onEditorStateChange}
                     />
                   </div>

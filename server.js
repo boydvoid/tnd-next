@@ -6,7 +6,7 @@ const path = require("path");
 const fs = require("fs");
 const multer = require("multer");
 const mongoose = require("mongoose");
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const passport = require("passport");
 const expressValidator = require("express-validator");
 const session = require("express-session");
@@ -20,6 +20,7 @@ const Blogs = require("./Routes/blogRoutes");
 const Slider = require("./Routes/sliderRoutes");
 const Images = require("./Routes/imageRoutes");
 const Freebies = require("./Routes/freebiesRoutes");
+const Comments = require("./Routes/commentRoutes");
 // Create the Express-Next App
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
@@ -143,6 +144,7 @@ nextApp
     server.use("/api", Slider);
     server.use("/api", Images);
     server.use("/api", Freebies);
+    server.use("/api", Comments);
 
     //serve images
     server.use(
@@ -243,7 +245,7 @@ nextApp
     });
     server.get("/admin-blog/:slug", (req, res) => {
       db.users.findById(req.user).then(user => {
-        if (req.isAuthenticated() && req.user === "admin") {
+        if (req.isAuthenticated() && user.username === "admin") {
           return nextApp.render(req, res, "/admin-blog", {
             q: req.params.slug
           });
@@ -335,7 +337,7 @@ nextApp
 
     server.listen(port, err => {
       if (err) throw err;
-      console.log("> Ready on http://localhost:5000");
+      console.log("> Ready on http://localhost:3000");
     });
   })
   .catch(ex => {

@@ -12,13 +12,12 @@ const AboutSection = props => {
       <div className="columns is-centered">
         <div className="column is-6 padding-30">
           <h2>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa quiofficia deserunt mollit anim id est laborum."
+            Welcome, teacher friends! I’m Jenn Larson, a teacher, a mother, and
+            a writer. My goal is to provide resources, tips, and strategies to
+            help teachers make a difference in the lives of their students. I
+            believe that using effective teaching strategies, making learning
+            fun, and communicating that you care, can help students achieve to
+            the best of their abilities.
           </h2>
           <ul>
             <li>

@@ -90,5 +90,15 @@ export default {
       "https://api.convertkit.com/v3/forms/988284/subscribe?api_key=TYgg8lXToCzj3_E7q4JnLw",
       data
     );
+  },
+
+  submitComment: data => {
+    return axios.put(`/api/comments/submit`, data);
+  },
+  loadComments: data => {
+    return axios.get(`/api/comments/load/${data}`);
+  },
+  loadReplies: data => {
+    return axios.get(`/api/comments/loadReplies/${data}`);
   }
 };

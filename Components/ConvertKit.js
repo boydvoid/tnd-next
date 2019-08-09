@@ -11,7 +11,7 @@ class ConvertKit extends Component {
     tags: "",
     loading: false,
     title: this.props.title,
-    button: "SUBSCRIBE"
+    button: "Yes, Please"
   };
 
   /**

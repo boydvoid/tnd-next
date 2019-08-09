@@ -4,6 +4,7 @@ import Input from "../Components/Input";
 import Header from "../Components/Header";
 import api from "../utils/api";
 import Link from "next/link";
+import "isomorphic-fetch";
 const Freebies = props => {
   const logout = async () => {
     await api.logout();

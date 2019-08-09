@@ -6,7 +6,7 @@ import api from "../utils/api";
 import ConvertKit from "../Components/ConvertKit";
 import AboutSection from "../Components/AboutSection";
 import FreebieLogin from "../Components/FreebieLogin";
-import Footer from "../Components/Footer";
+import FooterNext from "../Components/FooterNext";
 import Layout from "../Components/Layout/Layout";
 import NavNext from "../Components/NavNext";
 const FreebiesReg = props => {
@@ -17,117 +17,53 @@ const FreebiesReg = props => {
         <IconNav />
 
         <div className="container-fluid">
-          <div className="row">
-            <FreebieLogin register={false} />
-            {/* login bar */}
-            <div className="container">
+          <FreebieLogin register={false} />
+
+          <div className="container">
+            <div className="columns">
               <div className="freebies-title">
                 <h2>
-                  Want to access a FREE library of rdesources for upper
+                  Want to access a FREE library of resources for upper
                   elementary classrooms?
                 </h2>
               </div>
-              <div className="col-xl-12">
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit
-                  aperiam, rerum accusantium, eveniet quia sint eius adipisci
-                  corporis eum deserunt voluptatum molestiae hic rem nisi atque,
-                  sed sapiente labore cum. Lorem ipsum dolor sit amet
-                  consectetur, adipisicing elit. Dicta, iusto quo? Perferendis,
-                  architecto quidem corrupti hic distinctio eos molestiae
-                  aliquid! Placeat adipisci enim est dolores cum autem minima
-                  dignissimos dolorem.
-                </p>
-              </div>
             </div>
-            <ConvertKit title="Join my newsletter and gain access to a library of FREE resources for upper elementary grades!" />
-            <AboutSection />
-            <div className="col-xl-12">
-              {/* footer */}
-              <Footer>
-                <ul>
-                  <li>
-                    <PBtn link="/" external={false}>
-                      Home
-                    </PBtn>
-                  </li>
-                  <li>
-                    <PBtn link="/my-blog" external={false}>
-                      Blog
-                    </PBtn>
-                  </li>
-                  <li>
-                    <PBtn
-                      link="https://www.teacherspayteachers.com/Store/The-Teacher-Next-Door"
-                      external={true}
-                    >
-                      My Store
-                    </PBtn>
-                  </li>
-                  <li>
-                    {" "}
-                    <PBtn link="/teacher-freebies" external={false}>
-                      Teacher Freebies
-                    </PBtn>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <PBtn link="/meet-jenn" external={false}>
-                      Meet Jenn
-                    </PBtn>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <PBtn link="/contact-me" external={false}>
-                      Contact Me
-                    </PBtn>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <PBtn
-                      link="https://www.facebook.com/TheTeacherNextDoor"
-                      external={true}
-                    >
-                      <i className="fab fa-facebook"></i>
-                    </PBtn>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <PBtn
-                      link="https://www.instagram.com/theteachernextdoor/"
-                      external={true}
-                    >
-                      <i className="fab fa-instagram"></i>
-                    </PBtn>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <PBtn
-                      link="https://www.pinterest.com/TeacherNextDoor/"
-                      external={true}
-                    >
-                      <i className="fab fa-pinterest-square"></i>
-                    </PBtn>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <PBtn
-                      link="https://www.teacherspayteachers.com/Store/The-Teacher-Next-Door"
-                      external={true}
-                    >
-                      TpT
-                    </PBtn>{" "}
-                  </li>
-                  <li>
-                    <Input
-                      className="searchBar"
-                      type="text"
-                      placeholder="Search..."
-                    />
-                  </li>
-                </ul>
-              </Footer>
+          </div>
+          <div className="container">
+            <div className="columns is-multiline">
+              <p>
+                Enter your information on the form to join my newsletter! The
+                first email you'll receive will give you the password for the
+                FREE Resource Library!
+              </p>
+              <p>Do make sure to:</p>
+              <ul>
+                <li>
+                  Enter your personal email, not your school email, which may
+                  have a strong filter to block emails.
+                </li>
+                <li>
+                  Check your SPAM or Promotions Tab, since sometimes emails are
+                  sent to those areas.
+                </li>
+              </ul>
+              <p>I promise to: </p>
+              <ul>
+                <li>
+                  Send you information, tips, resource updates, and freebies to
+                  help you as a 3rd - 6th grade teacher.
+                </li>
+                <li>
+                  Send regular emails (about once a week) but won't spam your
+                  email.
+                </li>
+              </ul>
             </div>
+          </div>
+
+          <div className="container-fluid">
+            <ConvertKit title="JOIN MY NEWSLETTER!" />
+            <FooterNext />
           </div>
         </div>
       </div>

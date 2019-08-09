@@ -3,12 +3,13 @@ import Link from "next/link";
 import Layout from "./Layout/Layout";
 import Slide from "./Slide";
 import PBtn from "./PBtn";
-import Paper from "../images/V.png";
+import Paper from "./IconImages";
+import Card from "./Card";
 const BlogSlider = props => (
   <Layout>
     <div className="container-fluid padding-30 light-purple">
       <div className="container white-bg padding-30">
-        <img src={Paper} alt="" />
+        <Paper />
         <h1>My Blogs</h1>
         <div className="columns is-multiline is-centered">
           {props.blogs.map((blog, index) => {
@@ -22,7 +23,7 @@ const BlogSlider = props => (
                     href={`/blog?q=${blog.title}`}
                   >
                     <a>
-                      <Slide
+                      <Card
                         title={blog.title}
                         img={blog.img}
                         category={blog.category}

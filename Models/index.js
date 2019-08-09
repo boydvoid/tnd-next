@@ -3,5 +3,7 @@ module.exports = {
   blogs: require("./blogs"),
   slider: require("./slider"),
   images: require("./images"),
-  freebies: require("./freebies")
+  freebies: require("./freebies"),
+  comments: require("./comments"),
+  notifications: require("./notifications")
 };

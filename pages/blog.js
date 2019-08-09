@@ -13,9 +13,8 @@ import Input from "../Components/Input";
 import Layout from "../Components/Layout/Layout";
 import Header from "../Components/Header";
 import { useRouter } from "next/router";
-
 import "isomorphic-fetch";
-
+import Comments from "../Components/Comments";
 const BlogPage = props => {
   const categories = props.blogs.category.split(",");
   return (
@@ -87,6 +86,10 @@ const BlogPage = props => {
                 <span dangerouslySetInnerHTML={{ __html: props.blogs.blog }} />
               </div>
             </div>
+          </div>
+
+          <div className="continer-fluid">
+            <Comments blogId={props.blogs._id} />
           </div>
         </div>
       </div>
