@@ -12,7 +12,7 @@ import R1 from "../images/reading1.jpg";
 import R2 from "../images/reading2.jpg";
 import R3 from "../images/reading3.jpg";
 import IconImages from "../Components/IconImages";
-import Book from "../images/bookIcon.png";
+import Book from "../images/BookIcon.png";
 import Paper from "../images/V.png";
 import PBtn from "../Components/PBtn";
 const Blogs = props => {
