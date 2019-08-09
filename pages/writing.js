@@ -8,11 +8,11 @@ import MiniConvert from "../Components/miniConvert";
 import Footer from "../Components/Footer";
 import Slide from "../Components/Slide";
 import Link from "next/link";
-import R1 from "../images/Writing1.jpg";
-import R2 from "../images/Writing2.jpg";
-import R3 from "../images/Writing3.jpg";
+import R1 from "../images/writing1.jpg";
+import R2 from "../images/writing2.jpg";
+import R3 from "../images/writing3.jpg";
 import IconImages from "../Components/IconImages";
-import Writing from "../images/Pencil.png";
+import Writing from "../images/pencil.png";
 import Paper from "../images/V.png";
 import PBtn from "../Components/PBtn";
 const Blogs = props => {
