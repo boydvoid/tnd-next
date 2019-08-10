@@ -14,18 +14,23 @@ import "isomorphic-fetch";
 import Header from "../Components/Header";
 import Head from "next/head";
 class Home extends Component {
-  static async getInitialProps({ req }) {
-    const baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
-    const response = await fetch(baseUrl + "/api/blog/loadall");
-    const sliderItems = await fetch(baseUrl + "/api/slider/loadall/");
-    console.log(response.json());
-    const blogs = await response.json();
-    const items = await sliderItems.json();
-    console.log(`items: ${items}`);
-    let obj = { blogs: blogs, items: items };
-    return obj;
-  }
+  state = {
+    blogs: [],
+    items: []
+  };
 
+  componentDidMount() {
+    api.loadBlogs().then(blogs => {
+      this.setState({
+        blogs: blogs
+      });
+    });
+    api.loadSliderImages().then(slider => {
+      this.setState({
+        items: slider
+      });
+    });
+  }
   render() {
     return (
       <Layout>
@@ -37,8 +42,8 @@ class Home extends Component {
           <Header />
           <Jumbotron mainImage={Slider} />
           <ConvertKit title="JOIN MY NEWSLETTER!" />
-          <CollectionSlider items={this.props.items} />
-          <BlogSlider blogs={this.props.blogs} />
+          <CollectionSlider items={this.state.items} />
+          <BlogSlider blogs={this.state.blogs} />
           <SocialClips />
           <AboutSection />
           <FooterNext />
