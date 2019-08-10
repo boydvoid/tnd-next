@@ -18,6 +18,7 @@ class Home extends Component {
     const baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
     const response = await fetch(baseUrl + "/api/blog/loadall");
     const sliderItems = await fetch(baseUrl + "/api/slider/loadall/");
+    console.log(response.json());
     const blogs = await response.json();
     const items = await sliderItems.json();
     console.log(`items: ${items}`);
