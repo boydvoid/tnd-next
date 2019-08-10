@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import PBtn from "../Components/PBtn";
 import Input from "../Components/Input";
 import IconNav from "../Components/IconNav";
@@ -10,6 +10,14 @@ import FooterNext from "../Components/FooterNext";
 import Layout from "../Components/Layout/Layout";
 import NavNext from "../Components/NavNext";
 const FreebiesReg = props => {
+  const [freebies, setFreebies] = useState([]);
+
+  useEffect(() => {
+    api.loadFreebies().then(freebie => {
+      setFreebies(freebie.data);
+    });
+  }, []);
+
   return (
     <Layout>
       <div className="freebies wrapper-freebies">
@@ -62,6 +70,14 @@ const FreebiesReg = props => {
           </div>
 
           <div className="container-fluid">
+            {/* freebies resources */}
+            {freebies.map(freebie => {
+              return (
+                <div className="column">
+                  <img src={freebie.img} alt="" />
+                </div>
+              );
+            })}
             <ConvertKit title="JOIN MY NEWSLETTER!" />
             <FooterNext />
           </div>
