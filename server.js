@@ -112,35 +112,35 @@ nextApp
     server.use(express.json());
     server.use(expressValidator());
 
-    // mongoose
-    //   .connect(
-    //     "mongodb://bobby:sac6kings@localhost:27017/tnd?authSource=admin" ||
-    //       "mongodb://localhost/tnd",
-    //     {
-    //       useNewUrlParser: true
-    //     }
-    //   )
-    //   .then(() => {});
-
-    // // store the session in mongo db
-    // const store = new MongoDBStore({
-    //   uri:
-    //     "mongodb://bobby:sac6kings@localhost:27017/tnd?authSource=admin" ||
-    //     "mongodb://localhost/tnd",
-    //   collection: "sessions"
-    // });
-
     mongoose
-      .connect(process.env.MONGOLAB_ORANGE_URI || "mongodb://localhost/tnd", {
-        useNewUrlParser: true
-      })
+      .connect(
+        "mongodb://bobby:sac6kings@localhost:27017/tnd?authSource=admin" ||
+          "mongodb://localhost/tnd",
+        {
+          useNewUrlParser: true
+        }
+      )
       .then(() => {});
 
     // store the session in mongo db
     const store = new MongoDBStore({
-      uri: process.env.MONGOLAB_ORANGE_URI || "mongodb://localhost/tnd",
+      uri:
+        "mongodb://bobby:sac6kings@localhost:27017/tnd?authSource=admin" ||
+        "mongodb://localhost/tnd",
       collection: "sessions"
     });
+
+    // mongoose
+    //   .connect(process.env.MONGOLAB_ORANGE_URI || "mongodb://localhost/tnd", {
+    //     useNewUrlParser: true
+    //   })
+    //   .then(() => {});
+
+    // // store the session in mongo db
+    // const store = new MongoDBStore({
+    //   uri: process.env.MONGOLAB_ORANGE_URI || "mongodb://localhost/tnd",
+    //   collection: "sessions"
+    // });
     // session
     server.use(
       session({
