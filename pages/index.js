@@ -16,15 +16,13 @@ import Head from "next/head";
 class Home extends Component {
   static async getInitialProps({ req }) {
     const baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
-    fetch(baseUrl + "/api/blog/loadall").then(res => {
-      console.log(res);
-      //  const sliderItems = await fetch(baseUrl + "/api/slider/loadall/");
-      //  const blogs = await response.json();
-      //  const items = await sliderItems.json();
-      //  console.log(`items: ${items}`);
-      //  let obj = { blogs: blogs, items: items };
-      //  return obj;
-    });
+    const response = await fetch(baseUrl + "/api/blog/loadall");
+    const sliderItems = await fetch(baseUrl + "/api/slider/loadall/");
+    const blogs = await response.json();
+    const items = await sliderItems.json();
+    console.log(`items: ${items}`);
+    let obj = { blogs: blogs, items: items };
+    return obj;
   }
 
   render() {
