@@ -6,9 +6,10 @@ import PBtn from "../Components/PBtn";
 import Layout from "../Components/Layout/Layout";
 const Images = props => {
   const [images, setImages] = useState([]);
-
+  const [url, setUrl] = useState("");
   useEffect(() => {
     loadImages();
+    setUrl(window.location.href.split("/")[0]);
   }, []);
 
   const loadImages = () => {
@@ -58,10 +59,7 @@ const Images = props => {
                     <div className="column is-3">
                       <form data-path={image.path} onSubmit={deleteSubmit}>
                         <div className="image">
-                          <img
-                            src={`http://localhost:5000/${image.path}`}
-                            alt=""
-                          />
+                          <img src={`${url}/${image.path}`} alt="" />
                           <p>{image.originalname}</p>
                         </div>
                         <PBtn type="submit">

@@ -114,7 +114,7 @@ nextApp
 
     mongoose
       .connect(
-        "mongodb://bobby:sac6kings@localhost:27017/tnd?authSource=admin" ||
+        "mongodb://bobby:sac6kings@127.0.0.1:27017/tnd?authSource=admin" ||
           "mongodb://localhost/tnd",
         {
           useNewUrlParser: true
@@ -125,7 +125,7 @@ nextApp
     // store the session in mongo db
     const store = new MongoDBStore({
       uri:
-        "mongodb://bobby:sac6kings@localhost:27017/tnd?authSource=admin" ||
+        "mongodb://bobby:sac6kings@127.0.0.1:27017/tnd?authSource=admin" ||
         "mongodb://localhost/tnd",
       collection: "sessions"
     });
