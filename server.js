@@ -120,7 +120,9 @@ nextApp
           useNewUrlParser: true
         }
       )
-      .then(() => {});
+      .then(() => {
+        console.log("connected");
+      });
 
     // store the session in mongo db
     const store = new MongoDBStore({
