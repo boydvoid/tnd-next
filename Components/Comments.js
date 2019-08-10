@@ -44,16 +44,29 @@ class Comments extends Component {
               <h1>Comments</h1>
             </div>
             <div className="column is-6 has-text-centered">
-              <form onSubmit={this.formSubmit}>
-                <Input type="text" name="firstname" placeholder="First Name" />
-                <textarea
-                  name="comment"
-                  id=""
-                  cols="30"
-                  rows="10"
-                  placeholder="Add your comment..."
-                ></textarea>
-                <PBtn type="submit">Submit</PBtn>
+              <form onSubmit={this.formSubmit} id="commentSubmit">
+                <div className="columns is-multiline">
+                  <div className="column is-12">
+                    <Input
+                      type="text"
+                      name="firstname"
+                      placeholder="First Name"
+                      className="commentInput"
+                    />
+                  </div>
+                  <div className="column is-12">
+                    <textarea
+                      name="comment"
+                      cols="30"
+                      rows="10"
+                      placeholder="Add your comment..."
+                      className="comment-textarea"
+                    ></textarea>
+                  </div>
+                  <div className="column is-2">
+                    <PBtn type="submit">Submit</PBtn>
+                  </div>
+                </div>
               </form>
             </div>
           </div>

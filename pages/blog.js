@@ -23,7 +23,7 @@ const BlogPage = props => {
         <Header />
         <div className="container-fluid blog-container">
           <div className="columns is-centered">
-            <div className="column is-8">
+            <div className="column is-12">
               <div className="title-container">
                 <div className="categories">
                   {categories.map(category => {
@@ -81,7 +81,7 @@ const BlogPage = props => {
         </div>
         <div className="preview">
           <div className="container blog-text">
-            <div className="columns is-centered">
+            <div className="columns is-centered ">
               <div className="column is-6">
                 <span dangerouslySetInnerHTML={{ __html: props.blogs.blog }} />
               </div>

@@ -41,7 +41,7 @@ const CommentCard = props => {
     document.getElementById(props.id).style.display = "none";
   };
   return (
-    <div className="card">
+    <div className="column is-12 card">
       <div className="title">
         <h1>{props.name}</h1>
       </div>

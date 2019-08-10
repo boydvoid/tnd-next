@@ -1,3 +1,20 @@
 .freebies {
-  
+  ul {
+    list-style-type: disc;
+  }
+
+  .freebie-img {
+    max-width: 200px;
+    width: 100%;
+  }
+
+  .freebie-display {
+    background-color: #ffffff;
+    margin-top: 50px;
+  }
+
+  .padding-30 {
+    padding: 30px;
+
+  }
 }

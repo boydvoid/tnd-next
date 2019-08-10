@@ -1,5 +1,14 @@
 .blogPage {
   overflow: hidden;
+  background-color: #ffffff;
+
+  .preview {
+
+    p {
+      padding: 20px;
+    }
+
+  }
 
   ul li {
     float: left;
@@ -20,6 +29,7 @@
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.226);
 
     .Reading {
       background-color: $lightBlue;
@@ -70,4 +80,20 @@
   }
 
 
+  .blog-text img {
+    margin: 0 auto;
+  }
+
+
+}
+
+.comments {
+  textarea {
+    width: 100%;
+  }
+
+  .commentSubmit {
+    display: flex;
+    justify-content: center;
+  }
 }
