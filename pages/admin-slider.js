@@ -84,19 +84,19 @@ const AdminSlider = () => {
                   <img src={image.img} alt="" />
                   <Input
                     type="text"
-                    value={image.title}
+                    defaultValue={image.title}
                     placeholder="Title"
                     name="title"
                   />
                   <Input
                     type="text"
-                    value={image.link}
+                    defaultValue={image.link}
                     placeholder="Link"
                     name="link"
                   />
                   <Input
                     type="text"
-                    value={image.img}
+                    defaultValue={image.img}
                     placeholder="Image URL"
                     name="img"
                   />

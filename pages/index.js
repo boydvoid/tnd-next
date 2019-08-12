@@ -21,13 +21,14 @@ class Home extends Component {
 
   componentDidMount() {
     api.loadBlogs().then(blogs => {
+      console.log(blogs);
       this.setState({
-        blogs: [blogs]
+        blogs: blogs.data
       });
     });
     api.loadSliderImages().then(slider => {
       this.setState({
-        items: [slider]
+        items: slider.data
       });
     });
   }

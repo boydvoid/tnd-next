@@ -27,7 +27,7 @@ class CollectionSlider extends Component {
               return (
                 <Link href={item.link}>
                   <a>
-                    <img src={item.img} alt="" />;
+                    <img src={item.img} alt="" />
                   </a>
                 </Link>
               );
