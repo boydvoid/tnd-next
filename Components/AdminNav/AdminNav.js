@@ -35,6 +35,11 @@ const AdminNav = props => (
           </Link>
         </li>
         <li>
+          <Link href="/admin-books">
+            <a>books</a>
+          </Link>
+        </li>
+        <li>
           <Link href="/">
             <a>Go to Site</a>
           </Link>

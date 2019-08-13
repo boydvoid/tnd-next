@@ -96,7 +96,7 @@ const Blogs = props => {
             <h1 className="padding-50">"Classroom" Blogs</h1>
             <div className="columns is-multiline is-centered">
               {props.blogs.map((blog, index) => {
-                if (blog.live && blog.category === "Classroom") {
+                if (blog.live && blog.category === "Ideas") {
                   return (
                     <div className="column is-3" key={index}>
                       <Card

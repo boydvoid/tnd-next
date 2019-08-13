@@ -53,18 +53,8 @@
     padding: 30px;
 
   }
-}
 
-@include for-tablet-landscape-up {
-  padding: 20px;
-}
-
-@mixin for-tablet-portrait-up {}
-
-@mixin for-phone-only {}
-
-@mixin for-phone-only {
-  @media (max-width: 599px) {
-    @content;
+  .login-form {
+    width: 100%;
   }
 }

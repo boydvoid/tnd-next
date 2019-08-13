@@ -21,6 +21,7 @@ const Slider = require("./Routes/sliderRoutes");
 const Images = require("./Routes/imageRoutes");
 const Freebies = require("./Routes/freebiesRoutes");
 const Comments = require("./Routes/commentRoutes");
+const Books = require("./Routes/bookRoutes");
 // Create the Express-Next App
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
@@ -165,6 +166,7 @@ nextApp
     server.use("/api", Images);
     server.use("/api", Freebies);
     server.use("/api", Comments);
+    server.use("/api", Books);
 
     //serve images
     server.use(

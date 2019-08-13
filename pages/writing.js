@@ -12,7 +12,7 @@ import R1 from "../images/writing1.jpg";
 import R2 from "../images/writing2.jpg";
 import R3 from "../images/writing3.jpg";
 import IconImages from "../Components/IconImages";
-import Writing from "../images/pencil.png";
+import Pencil from "../images/pencil.png";
 import Paper from "../images/V.png";
 import PBtn from "../Components/PBtn";
 const Blogs = props => {
@@ -27,7 +27,7 @@ const Blogs = props => {
           <div className="columns is-multiline is-centered">
             <div className="column is-12 has-text-centered">
               <h1>
-                <IconImages img={Writing} /> Writing & Grammar
+                <IconImages img={Pencil} /> Writing & Grammar
               </h1>
             </div>
             <div className="column is-4 has-text-centered">

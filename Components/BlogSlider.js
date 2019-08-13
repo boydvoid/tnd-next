@@ -3,14 +3,15 @@ import Link from "next/link";
 import Layout from "./Layout/Layout";
 import Slide from "./Slide";
 import PBtn from "./PBtn";
-import Paper from "./IconImages";
+import IconImage from "./IconImages";
+import Paper from "../images/V.png";
 import Card from "./Card";
 const BlogSlider = props => (
   <Layout>
-    <div className="container-fluid padding-30 light-purple">
+    <div className="container-fluid padding-30 light-purple blog-slider">
       <div className="container white-bg padding-30">
-        <Paper />
-        <h1>My Blogs</h1>
+        <IconImage img={Paper} />
+        <h1>Recent Blogs</h1>
         <div className="columns is-multiline is-centered">
           {props.blogs.map((blog, index) => {
             if (blog.live && index < 8) {

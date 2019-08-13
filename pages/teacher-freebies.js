@@ -15,27 +15,27 @@ const Freebies = props => {
     <div className="freebies">
       <Header />
       <div className="container">
-        <div className="row">
-          {props.user ? (
-            <div className="col-xl-12">
-              <PBtn onClick={logout}>Logout</PBtn>
-              <div className="container">
-                <div className="columns">
-                  {props.freebies.map((freebie, index) => {
-                    return (
-                      <div className="column is-3">
-                        <img src={freebie.img} alt="" />
-                        <Link href={freebie.path}>
-                          <a>Download</a>
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </div>
+        {props.user ? (
+          <div className="column">
+            <PBtn onClick={logout}>Logout</PBtn>
+            <div className="container">
+              <div className="columns">
+                {props.freebies.map((freebie, index) => {
+                  return (
+                    <div className="column is-3">
+                      <img src={freebie.img} alt="" />
+                      <Link href={freebie.path}>
+                        <a>Download</a>
+                      </Link>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-          ) : (
-            <div className="col-xl-12">
+          </div>
+        ) : (
+          <div className="columns is-centered">
+            <div className="column is-6 has-text-centered">
               <form className="login-form" action="/api/login" method="POST">
                 <Input
                   className="form-control"
@@ -52,8 +52,8 @@ const Freebies = props => {
                 <PBtn type="submit">Get Freebies</PBtn>
               </form>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

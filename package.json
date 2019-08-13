@@ -47,6 +47,7 @@
     "express-validator": "^5.3.1",
     "font-awesome": "^4.7.0",
     "html-to-draftjs": "^1.4.0",
+    "install": "^0.13.0",
     "lodash": "^4.17.15",
     "megadraft": "^0.6.4",
     "mongoose": "^5.5.8",
@@ -56,6 +57,7 @@
     "next-images": "^1.1.2",
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.0",
+    "npm": "^6.10.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
@@ -69,6 +71,7 @@
     "react-infinite-scroller": "^1.2.4",
     "react-multi-carousel": "^2.1.2",
     "react-scripts": "3.0.0",
+    "react-share": "^3.0.0",
     "react-slick": "^0.24.0",
     "visual-ajs": "^0.0.6"
   }

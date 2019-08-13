@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   EditorState,
   convertToRaw,
@@ -16,8 +16,23 @@ import { useRouter } from "next/router";
 import "isomorphic-fetch";
 import Comments from "../Components/Comments";
 import FooterNext from "../Components/Footer";
+import ShareMenu from "../Components/ShareMenu";
+import BlogSlider from "../Components/BlogSlider";
+import api from "../utils/api";
+import IconImages from "../Components/IconImages";
+import Book from "../images/BookIcon.png";
+import Calculator from "../images/calc.png";
+import Pencil from "../images/pencil.png";
+import Light from "../images/light.png";
+import Mug from "../images/mug.png";
 const BlogPage = props => {
   const categories = props.blogs.category.split(",");
+  const [blogs, setBlogs] = useState([]);
+  useEffect(() => {
+    api.loadBlogs().then(blog => {
+      setBlogs(blog.data);
+    });
+  }, []);
   return (
     <Layout>
       <div className="blogPage">
@@ -28,7 +43,21 @@ const BlogPage = props => {
               <div className="title-container">
                 <div className="categories">
                   {categories.map(category => {
-                    return <p className={`tag ${category}`}>{category}</p>;
+                    if (category === "Reading") {
+                      return <IconImages img={Book} />;
+                    }
+                    if (category === "Writing") {
+                      return <IconImages img={Pencil} />;
+                    }
+                    if (category === "Math") {
+                      return <IconImages img={Calculator} />;
+                    }
+                    if (category === "Holidays") {
+                      return <IconImages img={Mug} />;
+                    }
+                    if (category === "Ideas") {
+                      return <IconImages img={Light} />;
+                    }
                   })}
                 </div>
                 <h1 className="blog-title">{props.blogs.title}</h1>
@@ -75,6 +104,9 @@ const BlogPage = props => {
                       TpT
                     </PBtn>{" "}
                   </li>
+                  <li>
+                    <a href="#comments">Comments</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -85,11 +117,15 @@ const BlogPage = props => {
             <div className="columns is-centered ">
               <div className="column is-6">
                 <span dangerouslySetInnerHTML={{ __html: props.blogs.blog }} />
+                <div className="shareMenu">
+                  <ShareMenu />
+                </div>
               </div>
             </div>
           </div>
+          <BlogSlider blogs={blogs} />
 
-          <div className="continer-fluid">
+          <div className="continer-fluid" id="comments">
             <Comments blogId={props.blogs._id} />
           </div>
         </div>

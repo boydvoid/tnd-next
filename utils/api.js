@@ -100,5 +100,14 @@ export default {
   },
   loadReplies: data => {
     return axios.get(`/api/comments/loadReplies/${data}`);
+  },
+  loadBooks: () => {
+    return axios.get(`/api/book/loadall`);
+  },
+  newBook: () => {
+    return axios.post(`/api/book/new`);
+  },
+  saveBooks: data => {
+    return axios.put(`/api/book/save`, data);
   }
 };
