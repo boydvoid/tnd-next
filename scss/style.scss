@@ -14,6 +14,8 @@
 @import "./reading.scss";
 @import "./commentCard.scss";
 @import "./freebies.scss";
+@import "./mobileNav.scss";
+@import "./tabletNav.scss";
 @import "../node_modules/bulma/bulma.sass";
 
 $primary: 'Cabin',
@@ -24,6 +26,41 @@ $tertiary: 'Roboto',
 sans-serif;
 $bold: 700;
 $light: 200;
+
+@mixin for-tablet-portrait-up {}
+
+@mixin for-phone-only {}
+
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
 
 a {
   font-family: $secondary;

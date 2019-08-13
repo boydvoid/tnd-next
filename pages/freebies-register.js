@@ -85,9 +85,10 @@ const FreebiesReg = props => {
                     <div className="column is-3">
                       <img
                         src={freebie.img}
-                        alt={freebie.name}
+                        alt={freebie.originalname}
                         className="freebie-img"
                       />
+                      <p>{freebie.originalname}</p>
                     </div>
                   );
                 })}

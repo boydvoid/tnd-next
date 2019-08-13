@@ -15,7 +15,7 @@ const IconNav = props => (
   >
     <div className="container">
       <div className="navbar-start">
-        <img src={Logo} alt="" className="logo" />
+        <img src={Logo} alt="" className="logo image " />
         <img src="" alt="" />
       </div>
       <div className="navbar-end">
@@ -23,7 +23,7 @@ const IconNav = props => (
           <li>
             <Link as={`/reading`} href="/reading?q=reading">
               <a className="icon-link-tags">
-                <img src={BookIcon} className="icons" alt="" />
+                <img src={BookIcon} className="icons image" alt="" />
                 Reading
               </a>
             </Link>
@@ -31,7 +31,7 @@ const IconNav = props => (
           <li>
             <Link as={`/writing`} href="/writing?q=writing">
               <a className="icon-link-tags">
-                <img src={Pencil} className="icons" alt="" />
+                <img src={Pencil} className="icons image" alt="" />
                 Writing & Grammar
               </a>
             </Link>
@@ -39,7 +39,7 @@ const IconNav = props => (
           <li>
             <Link as={`/math`} href="/math?q=math">
               <a className="icon-link-tags">
-                <img src={Calc} className="icons" alt="" />
+                <img src={Calc} className="icons image" alt="" />
                 Math
               </a>
             </Link>
@@ -47,7 +47,7 @@ const IconNav = props => (
           <li>
             <Link as={`/holidays`} href="/holidays?q=holidays">
               <a className="icon-link-tags">
-                <img src={Mug} className="icons" alt="" />
+                <img src={Mug} className="icons image" alt="" />
                 Holidays
               </a>
             </Link>
@@ -55,7 +55,7 @@ const IconNav = props => (
           <li>
             <Link as={`/ideas`} href="/ideas?q=ideas">
               <a className="icon-link-tags">
-                <img src={Light} className="icons" alt="" />
+                <img src={Light} className="icons image" alt="" />
                 Classroom Ideas
               </a>
             </Link>

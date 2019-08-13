@@ -27,6 +27,7 @@ const BlogSlider = props => (
                         title={blog.title}
                         img={blog.img}
                         category={blog.category}
+                        description={blog.description}
                       />
                     </a>
                   </Link>
