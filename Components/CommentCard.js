@@ -5,12 +5,35 @@ import api from "../utils/api";
 
 const CommentCard = props => {
   const [replies, setReplies] = useState([]);
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
   useEffect(() => {
     api.loadReplies(props.id).then(replies => {
-      console.log(replies);
       setReplies(replies.data);
+
+      // date sections
+      let today = new Date(parseInt(props.date));
+      var dd = today.getDate();
+
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+      var hours = today.getHours();
+      let timeOfDay = hours > 12 ? "pm" : "am";
+      hours = hours > 12 ? hours - 12 : hours;
+      let min = today.getMinutes();
+      min = min < 10 ? "0" + min : min;
+      let time = `${hours}:${min}${timeOfDay}`;
+      setTime(time);
+      if (dd < 10) {
+        dd = "0" + dd;
+      }
+      if (mm < 10) {
+        mm = "0" + mm;
+      }
+      today = mm + "/" + dd + "/" + yyyy;
+      setDate(today);
     });
-  }, [props.id]);
+  }, [props.date, props.id]);
 
   const submitReply = e => {
     e.preventDefault();
@@ -41,14 +64,20 @@ const CommentCard = props => {
     document.getElementById(props.id).style.display = "none";
   };
   return (
-    <div className="column is-12 card">
+    <div className="column is-8 card">
       <div className="title">
-        <h1>{props.name}</h1>
+        <h2>{props.name}</h2>
+        <span className="flex-end">
+          <span className="lightFont">
+            {date} {time}
+          </span>
+        </span>
       </div>
       <div className="content">
-        <p>{props.date}</p>
-        <p>{props.comment}</p>
-        <PBtn type="submit" onClick={showForm}>
+        <div>
+          <p>{props.comment}</p>
+        </div>
+        <PBtn type="submit" onClick={showForm} className="replyButton">
           Reply
         </PBtn>
         <form className="replyForm" id={props.id} onSubmit={submitReply}>
@@ -62,7 +91,23 @@ const CommentCard = props => {
       </div>
       <div className="replies">
         {replies.map(reply => {
-          return <div className="title">{reply.name}</div>;
+          return (
+            <div className="card">
+              <div className="title">
+                <h2>{reply.name}</h2>
+                <span className="flex-end">
+                  <span className="lightFont">
+                    {date} {time}
+                  </span>
+                </span>
+              </div>
+              <div className="content">
+                <div>
+                  <p>{reply.comment}</p>
+                </div>
+              </div>
+            </div>
+          );
         })}
       </div>
     </div>

@@ -38,15 +38,15 @@ class Comments extends Component {
   render() {
     return (
       <div className="comments">
-        <div className="contianer">
+        <div className="contianer commentSubmitSection">
           <div className="columns is-multiline is-centered">
             <div className="column is-12 has-text-centered">
               <h1>Comments</h1>
             </div>
-            <div className="column is-6 has-text-centered">
+            <div className="column is-8 has-text-centered">
               <form onSubmit={this.formSubmit} id="commentSubmit">
                 <div className="columns is-multiline">
-                  <div className="column is-12">
+                  <div className="column is-12 flex">
                     <Input
                       type="text"
                       name="firstname"
@@ -72,8 +72,8 @@ class Comments extends Component {
           </div>
         </div>
 
-        <div className="container">
-          <div className="columns is-multiline">
+        <div className="container-fluid">
+          <div className="columns is-multiline is-centered">
             {this.state.comments.map(comment => {
               if (comment.reply === false) {
                 return (

@@ -15,6 +15,7 @@ import Header from "../Components/Header";
 import { useRouter } from "next/router";
 import "isomorphic-fetch";
 import Comments from "../Components/Comments";
+import FooterNext from "../Components/Footer";
 const BlogPage = props => {
   const categories = props.blogs.category.split(",");
   return (
@@ -92,6 +93,7 @@ const BlogPage = props => {
             <Comments blogId={props.blogs._id} />
           </div>
         </div>
+        <FooterNext />
       </div>
     </Layout>
   );
