@@ -6,6 +6,7 @@ import NavNext from "../Components/NavNext";
 import Layout from "../Components/Layout/Layout";
 import Link from "next/link";
 import api from "../utils/api";
+import Footer from "../Components/Footer";
 function Meet(props) {
   const [books, setBooks] = useState([]);
 
@@ -89,6 +90,7 @@ function Meet(props) {
               </p>
             </div>
           </div>
+          <Footer />
         </div>
       </div>
     </Layout>
