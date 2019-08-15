@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import Jumbotron from "../Components/Jumbotron/Jumbotron";
+import Link from "next/link";
+import dynamic from "next/dynamic";
 import Slider from "../images/freebies-slider.jpg";
 import ConvertKit from "../Components/ConvertKit";
 import CollectionSlider from "../Components/CollectionSlider";
 import BlogSlider from "../Components/BlogSlider";
 import api from "../utils/api";
-import SocialClips from "../Components/SocialClips/SocialClips";
+// import SocialClips from "../Components/SocialClips/SocialClips";
 import AboutSection from "../Components/AboutSection";
 import Layout from "../Components/Layout/Layout";
-import Link from "next/link";
 import FooterNext from "../Components/FooterNext";
 import "isomorphic-fetch";
 import Header from "../Components/Header";
 import Head from "next/head";
+const SocialClips = dynamic(() =>
+  import("../Components/SocialClips/SocialClips")
+);
+
 class Home extends Component {
   state = {
     blogs: [],
