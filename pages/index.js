@@ -50,7 +50,7 @@ class Home extends Component {
           <ConvertKit title="JOIN MY NEWSLETTER!" />
           <CollectionSlider items={this.state.items} />
           <BlogSlider blogs={this.state.blogs} />
-          {/* <SocialClips /> */}
+          <SocialClips />
           <AboutSection />
           <FooterNext />
         </div>
