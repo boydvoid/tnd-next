@@ -11,7 +11,7 @@ const BlogSlider = props => (
     <div className="container-fluid padding-30 light-purple blog-slider">
       <div className="container white-bg padding-30">
         <IconImage img={Paper} />
-        <h1>Recent Blogs</h1>
+        <h1 className="padding-bottom-30">Recent Blogs</h1>
         <div className="columns is-multiline is-centered">
           {props.blogs.map((blog, index) => {
             if (blog.live && index < 8) {
@@ -40,7 +40,7 @@ const BlogSlider = props => (
         <div className="container-fluid">
           <div className="columns is-centered">
             <div className="column is-2">
-              <PBtn>Read More</PBtn>
+              <PBtn className="margin-top-30">Read More</PBtn>
             </div>
           </div>
         </div>

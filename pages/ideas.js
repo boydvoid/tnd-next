@@ -31,13 +31,13 @@ const Blogs = props => {
               </h1>
             </div>
             <div className="column is-4 has-text-centered">
-              <p>
+              <h2>
                 Besides teaching, there are so many things that teachers juggle
                 during the school year…from organizing the classroom, to
                 classroom management, creating a positive classroom climate, and
                 more! This section has lots of practical tips, resources, and
                 strategies to help new teachers as well as veteran teachers.
-              </p>
+              </h2>
             </div>
           </div>
         </div>

@@ -44,7 +44,8 @@ const Books = props => {
     let newSlide = {
       _id: e.target.dataset["id"],
       img: data.get("img"),
-      link: data.get("link")
+      link: data.get("link"),
+      name: data.get("name")
     };
 
     api.saveBooks(newSlide).then(done => {
@@ -78,8 +79,14 @@ const Books = props => {
                       >
                         <div className="image">
                           <img src={Temp} alt="" />
-                          <p>{image.originalname}</p>
+                          <p>{image.name}</p>
                         </div>
+
+                        <Input
+                          defaultValue={image.name}
+                          placeholder="Book Name"
+                          name="name"
+                        />
                         <Input
                           defaultValue={image.img}
                           placeholder="Image URL"
@@ -87,8 +94,8 @@ const Books = props => {
                         />
                         <Input
                           defaultValue={image.link}
-                          placeholder="Image URL"
-                          name="img"
+                          placeholder="Link URL"
+                          name="link"
                         />
                         <Link href={image.path}>
                           <a>Download</a>
@@ -112,8 +119,13 @@ const Books = props => {
                       >
                         <div className="image">
                           <img src={image.img} alt="" />
-                          <p>{image.originalname}</p>
+                          <p>{image.name}</p>
                         </div>
+                        <Input
+                          defaultValue={image.name}
+                          placeholder="Book Name"
+                          name="name"
+                        />
                         <Input
                           defaultValue={image.img}
                           placeholder="Image URL"
@@ -121,8 +133,8 @@ const Books = props => {
                         />
                         <Input
                           defaultValue={image.link}
-                          placeholder="Image URL"
-                          name="img"
+                          placeholder="Link URL"
+                          name="link"
                         />
                         <Link href={image.path}>
                           <a>Download</a>

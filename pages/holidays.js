@@ -31,11 +31,11 @@ const Blogs = props => {
               </h1>
             </div>
             <div className="column is-4 has-text-centered">
-              <p>
+              <h2>
                 Even big kids enjoy celebrating holidays and seasons! This
                 section has activities, resources, and lots of mentor text
                 suggestions to make holidays fun and full of learning!
-              </p>
+              </h2>
             </div>
           </div>
         </div>

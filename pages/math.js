@@ -31,12 +31,12 @@ const Blogs = props => {
               </h1>
             </div>
             <div className="column is-4 has-text-centered">
-              <p>
+              <h2>
                 This section helps you make math more meaningful for your upper
                 grade students! It includes math centers for every standard, fun
                 activities and resources to reinforce concepts, as well as hands
                 on strategies to help your students truly understand numbers.
-              </p>
+              </h2>
             </div>
           </div>
         </div>

@@ -34,8 +34,11 @@ const Freebies = props => {
             </div>
           </div>
         ) : (
-          <div className="columns is-centered">
-            <div className="column is-6 has-text-centered">
+          <div className="columns is-centered is-multiline">
+            <div className="column is-12 heading">
+              <h1>Make sure to login with the info that I sent you.</h1>
+            </div>
+            <div className="column is-8 has-text-centered">
               <form className="login-form" action="/api/login" method="POST">
                 <Input
                   className="form-control"

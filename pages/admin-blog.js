@@ -130,6 +130,7 @@ const NewBlog = props => {
 
     if (titleInputVal !== "") {
       if (category !== "category") {
+        console.log("save");
         let data = {
           username: props.username,
           blog: draftToHtml(convertToRaw(editorState.getCurrentContent())),
@@ -141,6 +142,7 @@ const NewBlog = props => {
           description: descriptionVal
         };
 
+        console.log(data);
         const res = await api.saveBlog(data);
 
         if (res.data !== null || res.data !== undefined) {

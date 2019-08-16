@@ -104,9 +104,6 @@ const BlogPage = props => {
                       TpT
                     </PBtn>{" "}
                   </li>
-                  <li>
-                    <a href="#comments">Comments</a>
-                  </li>
                 </ul>
               </div>
             </div>

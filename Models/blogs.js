@@ -12,7 +12,8 @@ const blogSchema = new Schema({
   img: { type: String, required: false },
   live: { type: Boolean, required: true },
   views: { type: Number, required: true },
-  category: { type: String, required: true }
+  category: { type: String, required: true },
+  description: { type: String, required: true }
 });
 
 function convertDate() {

@@ -31,12 +31,12 @@ const Blogs = props => {
               </h1>
             </div>
             <div className="column is-4 has-text-centered">
-              <p>
+              <h2>
                 I love to directly teach writing to help even the most reluctant
                 writers find success! This section is full of ideas, resources,
                 and strategies to help your students become confident writers.
                 It also includes tips to make grammar fun!
-              </p>
+              </h2>
             </div>
           </div>
         </div>

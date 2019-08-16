@@ -21,7 +21,7 @@ class CollectionSlider extends Component {
       <div className="container-fluid collections border-bottom padding-30">
         <div className="container">
           <img src={Present} alt="" />
-          <h1>My Products</h1>
+          <h1 className="padding-bottom-30">My Products</h1>
           <Slider {...settings}>
             {this.props.items.map((item, index) => {
               return (
@@ -33,7 +33,7 @@ class CollectionSlider extends Component {
               );
             })}
           </Slider>
-          <div className="columns is-centered">
+          <div className="columns is-centered margin-top-30">
             <div className="column is-2">
               <PBtn
                 link="https://www.teacherspayteachers.com/Store/The-Teacher-Next-Door"

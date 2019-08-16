@@ -6,11 +6,11 @@ import "isomorphic-fetch";
 import Card from "../Components/Card";
 import MiniConvert from "../Components/miniConvert";
 import Footer from "../Components/Footer";
-import B from "../images/B.png";
-import C from "../images/C.png";
-import F from "../images/F.png";
-import S from "../images/S.png";
-import W from "../images/W.png";
+import Reading from "../images/BookIcon.png";
+import Writing from "../images/Pencil.png";
+import Math from "../images/Calc.png";
+import Holidays from "../images/Mug.png";
+import Ideas from "../images/Light.png";
 import Link from "next/link";
 import PBtn from "../Components/PBtn";
 const Blogs = props => {
@@ -23,9 +23,9 @@ const Blogs = props => {
           <MiniConvert />
           <div className="container blog-container">
             <div className="reading">
-              <div className="columns is-vcentered">
+              <div className="columns is-vcentered padding-top-30">
                 <div className="column inline">
-                  <img src={B} alt="" />
+                  <img src={Reading} alt="" />
                   <h1>Reading</h1>
                   <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -58,9 +58,9 @@ const Blogs = props => {
               </div>
             </div>
             <div className="math">
-              <div className="columns is-vcentered">
+              <div className="columns is-vcentered padding-top-30">
                 <div className="column inline">
-                  <img src={S} alt="" />
+                  <img src={Math} alt="" />
                   <h1>Math</h1>
                   <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -93,9 +93,9 @@ const Blogs = props => {
               </div>
             </div>
             <div className="writing">
-              <div className="columns is-vcentered">
+              <div className="columns is-vcentered padding-top-30">
                 <div className="column inline">
-                  <img src={C} alt="" />
+                  <img src={Writing} alt="" />
                   <h1>Writing & Grammar</h1>
                   <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -128,9 +128,9 @@ const Blogs = props => {
               </div>
             </div>
             <div className="holidays">
-              <div className="columns is-vcentered">
+              <div className="columns is-vcentered padding-top-30">
                 <div className="column inline">
-                  <img src={F} alt="" />
+                  <img src={Holidays} alt="" />
                   <h1>Holidays</h1>
                   <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -164,9 +164,9 @@ const Blogs = props => {
             </div>
 
             <div className="classroom">
-              <div className="columns is-vcentered">
+              <div className="columns is-vcentered padding-top-30">
                 <div className="column inline">
-                  <img src={W} alt="" />
+                  <img src={Ideas} alt="" />
                   <h1>Classroom Ideas</h1>
                   <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -210,8 +210,11 @@ const Blogs = props => {
           <NavNext />
           <IconNav />
           <MiniConvert />
-          <div className="container blog-container">
-            <div className="columns overflow-hidden">
+          <div className="container blog-container padding-top-30">
+            <div className="columns is-multiline">
+              <div className="column is-12">
+                <h2>Search Results</h2>
+              </div>
               {props.blogs.map((blog, index) => {
                 if (blog.live) {
                   return (

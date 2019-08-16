@@ -10,6 +10,7 @@ module.exports = {
     }
   },
   save: (req, res) => {
+    console.log(req.body.description);
     db.blogs
       .updateOne(
         { _id: req.body.id },
@@ -20,11 +21,13 @@ module.exports = {
             title: req.body.title,
             img: req.body.img,
             live: req.body.live,
-            category: req.body.category
+            category: req.body.category,
+            description: req.body.description
           }
         }
       )
       .then(done => {
+        console.log(done);
         res.send(done);
       })
       .catch(err => {

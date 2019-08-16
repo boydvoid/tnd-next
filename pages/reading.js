@@ -31,13 +31,13 @@ const Blogs = props => {
               </h1>
             </div>
             <div className="column is-4 has-text-centered">
-              <p>
+              <h2>
                 Reading is one of my favorite things to teach, but it can be
                 challenging! In this section, you’ll find tips and resources for
                 key reading comprehension strategies, how to implement effective
                 reading centers, and lots of mentor text ideas to enhance your
                 reading instruction.
-              </p>
+              </h2>
             </div>
           </div>
         </div>
